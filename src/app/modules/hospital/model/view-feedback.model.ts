@@ -1,7 +1,15 @@
 import { NodeWithI18n } from "@angular/compiler";
 
-export class Feedback {
-    patientId: string = 'ddd51def-45b7-4b8e-bf4b-4e32e51ad262';
+export class ViewFeedback{
+    id: string = '';
+    patient = {
+        id: "",
+        username: "",
+        name: "",
+        surname: "",
+        email:"",
+        phone:""
+    };
     date: Date = new Date();
     text: string = '';
     isAnonymous: Boolean = false;
@@ -11,7 +19,8 @@ export class Feedback {
 
     public constructor(obj?: any) {
         if (obj) {
-            this.patientId = obj.patientId;
+            this.id = obj.id;
+            this.patient = obj.patient;
             this.date = obj.date;
             this.text = obj.text;
             this.isAnonymous = obj.isAnonymous;

@@ -1,0 +1,16 @@
+<div (ngModel)="feedbacks"   >
+    <div *ngFor="let feedback of feedbacks">
+        <mat-card class="example-card" >
+            <mat-card-title-group>
+              <mat-card-title>
+                <div *ngIf="feedback.isAnonymous ; else elseBlock">Anonymous</div>
+                    <ng-template #elseBlock> <div> {{feedback.patient.name}} {{feedback.patient.surname}}</div> </ng-template>
+              </mat-card-title>
+            </mat-card-title-group>
+            <mat-card-content>
+              {{feedback.text}}
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>
+
