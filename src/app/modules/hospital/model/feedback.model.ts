@@ -1,7 +1,7 @@
 import { NodeWithI18n } from "@angular/compiler";
 
 export class Feedback {
-    patientId: string = 'ddd51def-45b7-4b8e-bf4b-4e32e51ad262';
+    patientId: string = '7df120aa-9e69-47e6-ac7b-e961e3977a63';
     date: Date = new Date();
     text: string = '';
     isAnonymous: Boolean = false;

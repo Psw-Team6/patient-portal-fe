@@ -1,0 +1,21 @@
+img {
+    width: 100%;
+    max-height: 500px;
+}
+
+.centered-text-on-image {
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+mat-card-content {
+    font-size: large;
+}
+
+.feedback-title{
+    margin: 5px;
+    font-size: larger;
+}

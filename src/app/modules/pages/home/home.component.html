@@ -1,16 +1,43 @@
-<div (ngModel)="feedbacks"   >
-    <div *ngFor="let feedback of feedbacks">
-        <mat-card class="example-card" >
-            <mat-card-title-group>
-              <mat-card-title>
-                <div *ngIf="feedback.isAnonymous ; else elseBlock">Anonymous</div>
-                    <ng-template #elseBlock> <div> {{feedback.patient.name}} {{feedback.patient.surname}}</div> </ng-template>
-              </mat-card-title>
-            </mat-card-title-group>
-            <mat-card-content>
-              {{feedback.text}}
-            </mat-card-content>
-          </mat-card>
-    </div>
-</div>
+<div>
+  <div>
+    <img cImg fluid src="assets/home-page-img.jpg" />
+    <div class="centered-text-on-image">
+      <h1 style="font-size:30px">Health is everything. We can do anything.</h1>
+      <br>
+      <h2>
+        We are NEW Hospital – a new and state-of-the-art general hospital in the region.
+      </h2>
+      <h3>We are located in Novi Sad, at Alberta Ajnstajna Street No. 1. <br>
+        We provide patients with a complete medical service, from diagnostics <br>
+        to surgical interventions towards cure, respecting all the requirements <br>
+        of the modern medical profession. </h3> 
+      <h3 style="font-size:20px">Together we can and do everything for your health.</h3>
 
+    </div>
+  </div>
+  <div class="feedback-title">
+    <br> <br>
+    <h1>Feedback of our patients</h1>
+    <br>
+  </div>
+  <div (ngModel)="feedbacks">
+    <div *ngFor="let feedback of feedbacks">
+      <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>
+            <div *ngIf="feedback.isAnonymous ; else elseBlock">Anonymous</div>
+            <ng-template #elseBlock>
+              <div> {{feedback.patient.name}} {{feedback.patient.surname}}</div>
+            </ng-template>
+          </mat-card-title>
+        </mat-card-title-group>
+        <mat-card-subtitle>
+          {{feedback.date | date : 'dd-MM-yyyy'}}
+        </mat-card-subtitle>
+        <mat-card-content>
+          {{feedback.text}}
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
