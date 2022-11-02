@@ -18,18 +18,25 @@ export class CreateFeedbackComponent implements OnInit {
   constructor(private feedbackService: FeedbackService, private router: Router) { }
 
   public createFeedback() {
-    if (!this.isValidInput()) return;
-    this.feedbackService.createFeedback(this.feedback).subscribe(res => {
+    if (!this.isValidInput()){
+      alert("Feedback cannot be empty.");
+      return;
+    }
+    try { this.feedbackService.createFeedback(this.feedback).subscribe(res => {
+      alert("Feedback sent for review.")
       this.router.navigate(['/home']);
     });
+  } catch(error) {
+    alert("Problem sending a review (patient id)")
   }
+}
 
   public printFeedback() {
     console.log(this.feedback);
   }
 
   private isValidInput(): boolean {
-    return this.feedback?.text != '';
+    return this.feedback.text != '';
   }
 
 }
