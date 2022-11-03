@@ -8,4 +8,10 @@
 
 .dialogButton {
     margin: 4px;
+    background-color: #1B273C ;
+    color: white;
+}
+
+.dialogButtonCancel {
+    margin: 4px;
 }

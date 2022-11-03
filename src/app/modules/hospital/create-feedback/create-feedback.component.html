@@ -1,18 +1,18 @@
 <h1 mat-dialog-title>Leave your feedback</h1>
 <div mat-dialog-content>
-    <mat-form-field id="feedbackArea" appearance="fill">
-        <mat-label>Your feedback here...</mat-label>
-        <textarea matInput [(ngModel)]="feedback.text"></textarea>
+    <mat-form-field color="primary" id="feedbackArea" appearance="fill">
+        <mat-label >Your feedback here...</mat-label>
+        <textarea  matInput [(ngModel)]="feedback.text"></textarea>
     </mat-form-field>
     <section class="example-section">
-        <mat-checkbox labelPosition="before" class="example-margin" [(ngModel)]="feedback.isAnonymous">Anonymous?</mat-checkbox>
+        <mat-checkbox color="primary" labelPosition="before" class="example-margin" [(ngModel)]="feedback.isAnonymous">Anonymous?</mat-checkbox>
     </section>
     <section class="example-section">
-        <mat-checkbox labelPosition="before" class="example-margin" [(ngModel)]="feedback.isPublic">Public?</mat-checkbox>
+        <mat-checkbox color="primary" labelPosition="before" class="example-margin" [(ngModel)]="feedback.isPublic">Public?</mat-checkbox>
     </section>
     <div mat-dialog-action [align]="'end'">
-        <button class="dialogButton" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-        <button class="dialogButton" mat-raised-button color="primary"(click)="createFeedback()" mat-dialog-close>Send</button>
+        <button class="dialogButtonCancel" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        <button class="dialogButton" mat-raised-button (click)="createFeedback()" mat-dialog-close>Send</button>
     </div>
     
 </div>
