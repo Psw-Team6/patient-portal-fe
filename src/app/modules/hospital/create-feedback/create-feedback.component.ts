@@ -27,7 +27,7 @@ export class CreateFeedbackComponent implements OnInit {
       this.router.navigate(['/home']);
     });
   } catch(error) {
-    alert("Problem sending a review (patient id)")
+    alert(error)
   }
 }
 
