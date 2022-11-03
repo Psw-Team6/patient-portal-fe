@@ -9,10 +9,19 @@ img {
     left: 55%;
     transform: translate(-50%, -50%);
     color: white;
+    align-items: center;
 }
+
 
 mat-card-content {
     font-size: large;
+}
+
+.example-card{
+    border-radius: 20px;
+    border-color: black;
+    border: 30px black;
+    margin-top: 10px;
 }
 
 .feedback-title{
