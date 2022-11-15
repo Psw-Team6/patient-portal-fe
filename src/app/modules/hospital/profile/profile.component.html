@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-title>Patient: {{patient?.name}} {{patient?.surname}}</mat-card-title>
+  <mat-card-content>
+    <p>Name: {{patient?.name}}</p>
+    <p>Surname: {{patient?.surname}}</p>
+    <p>Username: {{patient?.username}}</p>
+    <p>E-mail: {{patient?.email}}</p>
+    <p>Phone: {{patient?.phone}}</p>
+    <p>JMBG: {{patient?.jmbg}}</p>
+    <p>Floor: {{patient?.address?.street}} {{patient?.address?.number}}, {{patient?.address?.city}} {{patient?.address?.postalCode}}
+      {{patient?.address?.country}}</p>
+  </mat-card-content>
+</mat-card>

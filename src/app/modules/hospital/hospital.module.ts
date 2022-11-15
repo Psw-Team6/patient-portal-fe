@@ -8,12 +8,14 @@ import { RoomDetailComponent } from "./room-detail/room-detail.component";
 import { RoomsComponent } from "./rooms/rooms.component";
 import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { CreateFeedbackComponent } from './create-feedback/create-feedback.component';
+import { ProfileComponent} from "./profile/profile.component";
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
   { path: 'rooms/add', component: CreateRoomComponent },
-  { path: 'rooms/:id', component: RoomDetailComponent },  
+  { path: 'rooms/:id', component: RoomDetailComponent },
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
+  { path: 'profile', component: ProfileComponent },
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const routes: Routes = [
     RoomDetailComponent,
     CreateRoomComponent,
     UpdateRoomComponent,
-    CreateFeedbackComponent
+    CreateFeedbackComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
