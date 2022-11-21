@@ -8,10 +8,7 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './modules/toolbar/toolbar.component';
-
-
-
-
+import {ApplicationUserClient} from "./api/api-reference";
 
 @NgModule({
   declarations: [
@@ -28,7 +25,7 @@ import { ToolbarComponent } from './modules/toolbar/toolbar.component';
     HospitalModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [ApplicationUserClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
