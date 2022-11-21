@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormGroup, FormControl} from "@angular/forms";
 import {NgToastService} from "ng-angular-popup";
-import {TokenStorageService} from "../services/token-storage.service";
+import {TokenStorageService} from "../../hospital/services/token-storage.service";
 import {Router} from "@angular/router";
 import {ApplicationUserClient, LoginRequest} from "../../../api/api-reference";
 
@@ -12,7 +12,7 @@ import {ApplicationUserClient, LoginRequest} from "../../../api/api-reference";
 })
 export class LoginComponent implements OnInit {
   rightActive:boolean = false
-  PatientUrl:string = "https://patient-portal"
+  patientUrl:string = "https://patient-portal"
   loginForm = new FormGroup({
     username: new FormControl<string | undefined>(undefined),
     password: new FormControl<string | undefined>(undefined)
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
     const loginRequest:LoginRequest = new LoginRequest({
       username: this.loginForm.controls.username.value!,
       password: this.loginForm.controls.password.value!,
-      portalUrl : this.PatientUrl
+      portalUrl : this.patientUrl
     })
 
     this.applicationUserClient.authenticate(loginRequest).subscribe({
@@ -40,15 +40,11 @@ export class LoginComponent implements OnInit {
           this.tokenStorageService.saveToken(response.token!)
           this.tokenStorageService.saveUser(response.userToken!)
           this.toast.success({detail: 'Success!', summary: response.message, duration: 5000})
-          if(response.userToken!.role === 'Doctor'){
-            this.router.navigate(['dashboard']).then(
-              ()=>{
-                window.location.reload();
-                //this.changeDetectorRef.detectChanges();
-              }
-            )
-          }
-
+          this.router.navigate(['home']).then(
+            ()=>{
+              window.location.reload();
+            }
+          );
         },
         error: message => {
           console.log(message.Error)

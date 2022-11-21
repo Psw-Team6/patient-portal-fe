@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { CreateFeedbackComponent } from '../hospital/create-feedback/create-feedback.component';
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../hospital/services/token-storage.service";
 
 @Component({
   selector: 'app-toolbar',
@@ -12,9 +13,9 @@ import {Router} from "@angular/router";
 
 
 export class ToolbarComponent implements OnInit {
+loggedIn = false;
 
-
-  constructor(public dialog: MatDialog, private router: Router) {}
+  constructor(public dialog: MatDialog, private router: Router, private tokenService : TokenStorageService) {}
 
   openDialog(): void {
     const dialogRef = this.dialog.open(CreateFeedbackComponent, {
@@ -31,8 +32,16 @@ export class ToolbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loggedIn = this.tokenService.isLoggedIn();
   }
 
 
+  openLoginForm() {
+    this.router.navigate(['']);
+  }
 
+  onSignOut() {
+    this.router.navigate(['sign-out']);
+
+  }
 }

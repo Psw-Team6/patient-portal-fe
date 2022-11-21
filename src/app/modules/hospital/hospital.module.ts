@@ -9,15 +9,17 @@ import { RoomsComponent } from "./rooms/rooms.component";
 import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { CreateFeedbackComponent } from './create-feedback/create-feedback.component';
 import { ProfileComponent} from "./profile/profile.component";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from '../pages/login/login.component';
+import {PatientGuard} from "../../guards/patient-guard.service";
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
   { path: 'rooms/add', component: CreateRoomComponent },
   { path: 'rooms/:id', component: RoomDetailComponent },
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
-  { path: 'profile', component: ProfileComponent },
-  {path: 'login', component: LoginComponent}
+  { path: 'profile',
+    component: ProfileComponent,
+    canActivate:[PatientGuard]},
 ];
 
 @NgModule({

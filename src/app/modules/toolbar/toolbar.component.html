@@ -5,13 +5,13 @@
   <span>Hospital</span>
   <span class="example-spacer"></span>
   <div class="example-button-container">
-    <button mat-mini-fab color="warn" matTooltip="Leave your feedback" (click)="openDialog()" aria-label="Leave feedback">
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Leave your feedback" (click)="openDialog()" aria-label="Leave feedback">
       <mat-icon>feedback</mat-icon>
     </button>
-    <button mat-mini-fab  style="margin-left: 2rem; background-color: #334971; color: #DCD6CC" matTooltip="Login/Sign up" (click)="openDialog()" aria-label="Login/Sign up">
-      <mat-icon>login</mat-icon>
+    <button *ngIf="!loggedIn"   mat-raised-button color="primary" class="mat-raised-button" matTooltip="Login" (click)="openLoginForm()" aria-label="Login">Sign in
     </button>
-    <button mat-raised-button color="primary" class="mat-raised-button" (click)="openRegistration()" mat-dialog-close>Sign up</button>
+    <button *ngIf="!loggedIn"  mat-raised-button color="primary" class="mat-raised-button" (click)="openRegistration()" mat-dialog-close>Sign up</button>
+    <button *ngIf="loggedIn"  mat-raised-button color="primary" class="mat-raised-button" (click)="onSignOut()" mat-dialog-close>Sign out</button>
   </div>
 </mat-toolbar>
 
