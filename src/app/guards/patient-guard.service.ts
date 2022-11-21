@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import { Observable } from 'rxjs';
-import {TokenStorageService} from "../modules/hospital/services/token-storage.service";
 import {NgToastService} from "ng-angular-popup";
+import {TokenStorageService} from "../modules/hospital/services/token-storage.service";
 
 @Injectable({
   providedIn: 'root'

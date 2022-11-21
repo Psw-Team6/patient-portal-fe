@@ -18,8 +18,7 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   {path: 'home',
-   component: HomeComponent,
-  canActivate:[PatientGuard]
+   component: HomeComponent
   },
   {path: 'sign-out',
    component:SignOutComponent,
