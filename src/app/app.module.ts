@@ -9,6 +9,7 @@ import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './modules/toolbar/toolbar.component';
 import {ApplicationUserClient} from "./api/api-reference";
+import {authInterceptorProviders} from "./helpers/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {ApplicationUserClient} from "./api/api-reference";
     HospitalModule,
     MaterialModule
   ],
-  providers: [ApplicationUserClient],
+  providers: [ApplicationUserClient,
+             authInterceptorProviders,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

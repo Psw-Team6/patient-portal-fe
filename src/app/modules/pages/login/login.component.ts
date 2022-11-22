@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit {
       password: this.loginForm.controls.password.value!,
       portalUrl : this.patientUrl
     })
-
+   console.log(loginRequest);
     this.applicationUserClient.authenticate(loginRequest).subscribe({
         next: response => {
           console.log(response)
           this.tokenStorageService.saveToken(response.token!)
-          this.tokenStorageService.saveUser(response.userToken!)
+          this.tokenStorageService.saveUser(response.token!)
           this.toast.success({detail: 'Success!', summary: response.message, duration: 5000})
           this.router.navigate(['home']).then(
             ()=>{
