@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './modules/toolbar/toolbar.component';
 import {ApplicationUserClient} from "./api/api-reference";
 import {authInterceptorProviders} from "./helpers/auth.interceptor";
+import {NgToastModule} from "ng-angular-popup";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {authInterceptorProviders} from "./helpers/auth.interceptor";
     MaterialModule,
     PagesModule,
     HospitalModule,
-    MaterialModule
+    MaterialModule,
+    NgToastModule
   ],
   providers: [ApplicationUserClient,
              authInterceptorProviders,],
