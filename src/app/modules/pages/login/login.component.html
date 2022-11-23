@@ -3,16 +3,48 @@
 <div class="container-main" >
   <div class="container" [ngClass]="rightActive ? 'right-panel-active' :''"  id="container">
     <div class="form-container sign-up-container">
-      <form action="#">
+      <div class="form-replacement">
         <div class="title-container">
           <h1 class="title">Create Account</h1>
           <span>or use your email for registration</span>
         </div>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
-      </form>
+        <div class="grid-container">
+          <div class="grid-item">
+            <input matInput [(ngModel)]="createPatientModel.name" class="mat-input-element" type="text" placeholder="Name" /><br>
+            <input matInput [(ngModel)]="createPatientModel.surname" class="mat-input-element" type="text" placeholder="Surname" /><br>
+            <input matInput [(ngModel)]="createPatientModel.username" class="mat-input-element" type="text" placeholder="Username" /><br>
+            <input matInput [(ngModel)]="createPatientModel.email" class="mat-input-element" type="email" placeholder="E-mail" /><br>
+            <input matInput [(ngModel)]="createPatientModel.password" class="mat-input-element" type="password" placeholder="Password" /><br>
+            <input matInput [(ngModel)]="createPatientModel.jmbg" class="mat-input-element" type="text" placeholder="Jmbg" /><br>
+            <div class="date-wrapper">
+              <input matInput [(ngModel)]="createPatientModel.dateOfBirth" placeholder="Date Of Birth" class="mat-input-element2" [matDatepicker]="picker">
+              <mat-datepicker-toggle class="suffix" matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </div>
+          </div>
+          <div class="grid-item">
+            <input matInput [(ngModel)]="createPatientModel.address.country" class="mat-input-element" type="text" placeholder="Country" /><br>
+            <input matInput [(ngModel)]="createPatientModel.address.city" class="mat-input-element" type="text" placeholder="City" /><br>
+            <input matInput [(ngModel)]="createPatientModel.address.street" class="mat-input-element" type="text" placeholder="Street" /><br>
+            <input matInput [(ngModel)]="createPatientModel.address.number" class="mat-input-element" type="text" placeholder="Number" /><br>
+            <input matInput  [(ngModel)]="createPatientModel.address.postalCode" class="mat-input-element" type="text" placeholder="Postal Code" /><br>
+            <input matInput [(ngModel)]="createPatientModel.phone" class="mat-input-element" type="text" placeholder="Phone Number" /><br>
+          </div>
+          <div class="grid-item grid-itemBig">
+            <app-general-doctors-available (onSelectedDoctor)="onSelectingDoctor($event)"></app-general-doctors-available><br>
+            <mat-form-field appearance="fill">
+              <mat-label>Blood type</mat-label>
+              <mat-select [(ngModel)]="createPatientModel.bloodType">
+                <mat-option *ngFor="let type of bloodTypes" [value]="type.value">
+                  {{type.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <app-all-allergens (onSelectedAllergen)="onSelectingAllergen($event)"></app-all-allergens>
+          </div>
+        </div>
+        <button (click)="register()">Sign Up</button>
+      </div>
     </div>
     <div class="form-container sign-in-container">
       <form [formGroup]="loginForm" (ngSubmit)="signIn()">

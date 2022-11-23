@@ -11,6 +11,8 @@ import { CreateFeedbackComponent } from './create-feedback/create-feedback.compo
 import { ProfileComponent} from "./profile/profile.component";
 import { LoginComponent } from '../pages/login/login.component';
 import {PatientGuard} from "../../guards/patient-guard.service";
+import { GeneralDoctorsAvailableComponent } from './general-doctors-available/general-doctors-available.component';
+import { AllAllergensComponent } from './all-allergens/all-allergens.component';
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
@@ -30,7 +32,9 @@ const routes: Routes = [
     UpdateRoomComponent,
     CreateFeedbackComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    GeneralDoctorsAvailableComponent,
+    AllAllergensComponent
   ],
   imports: [
     CommonModule,
