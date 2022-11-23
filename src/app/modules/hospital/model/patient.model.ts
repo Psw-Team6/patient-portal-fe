@@ -1,5 +1,5 @@
 import { Address} from "./address.model";
-import { Allergen} from "./allergen.model";
+import { AllergenModel } from "./allergen.model";
 import { Doctor} from "./doctor.model";
 
 export class Patient {
@@ -11,7 +11,7 @@ export class Patient {
   phone: string = '';
   jmbg: string = '';
   gender: number = 0;
-  allergen: Allergen = new Allergen();
+  allergen: AllergenModel = new AllergenModel();
   doctor: Doctor = new Doctor();
   bloodType: number = 0;
 
