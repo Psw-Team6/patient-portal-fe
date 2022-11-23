@@ -21,7 +21,8 @@ const routes: Routes = [
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
   { path: 'profile',
     component: ProfileComponent,
-    canActivate:[PatientGuard]},
+    canActivate:[PatientGuard]
+  },
 ];
 
 @NgModule({

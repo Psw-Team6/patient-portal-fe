@@ -13,8 +13,8 @@ import { MatCheckboxModule} from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
-
-
+import { MatGridListModule} from "@angular/material/grid-list";
+import {MatDividerModule} from "@angular/material/divider";
 
 
 
@@ -34,7 +34,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatDividerModule
   ],
   exports: [
     CommonModule,
@@ -48,6 +50,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatToolbarModule,
     MatDialogModule,
     MatCheckboxModule,
+    MatGridListModule,
+    MatDividerModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule

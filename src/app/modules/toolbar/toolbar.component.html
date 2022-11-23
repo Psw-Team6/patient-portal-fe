@@ -5,6 +5,9 @@
   <span>Hospital</span>
   <span class="example-spacer"></span>
   <div class="example-button-container">
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Open personal profile" (click)="openProfile()" aria-label="Open profile">
+      <mat-icon>account_circle</mat-icon>
+    </button>
     <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Leave your feedback" (click)="openDialog()" aria-label="Leave feedback">
       <mat-icon>feedback</mat-icon>
     </button>

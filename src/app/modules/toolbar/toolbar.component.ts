@@ -44,4 +44,8 @@ loggedIn = false;
     this.router.navigate(['sign-out']);
 
   }
+
+  openProfile(): void{
+    this.router.navigate(['/profile']);
+  }
 }
