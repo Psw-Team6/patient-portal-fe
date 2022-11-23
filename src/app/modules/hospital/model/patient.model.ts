@@ -1,7 +1,6 @@
 import { Address} from "./address.model";
 
 export class Patient {
-  id: number = 0;
   username: string = '';
   name: string = '';
   surname: string = '';
@@ -12,7 +11,6 @@ export class Patient {
 
   public constructor(obj?: any) {
     if (obj) {
-      this.id = obj.id;
       this.username = obj.username;
       this.name = obj.name;
       this.surname = obj.surname;
