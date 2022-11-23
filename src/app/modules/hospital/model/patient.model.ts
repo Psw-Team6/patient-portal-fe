@@ -1,4 +1,6 @@
 import { Address} from "./address.model";
+import { Allergen} from "./allergen.model";
+import { Doctor} from "./doctor.model";
 
 export class Patient {
   username: string = '';
@@ -8,6 +10,10 @@ export class Patient {
   address: Address = new Address();
   phone: string = '';
   jmbg: string = '';
+  gender: number = 0;
+  allergen: Allergen = new Allergen();
+  doctor: Doctor = new Doctor();
+  bloodType: number = 0;
 
   public constructor(obj?: any) {
     if (obj) {
@@ -18,6 +24,10 @@ export class Patient {
       this.address = obj.address;
       this.phone = obj.phone;
       this.jmbg = obj.jmbg;
+      this.gender = obj.gender;
+      this.allergen = obj.allergen;
+      this.doctor = obj.doctor;
+      this.bloodType = obj.bloodType;
     }
   }
 }
