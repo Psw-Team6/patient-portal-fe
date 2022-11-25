@@ -15,10 +15,6 @@ import { GeneralDoctorsAvailableComponent } from './general-doctors-available/ge
 import { AllAllergensComponent } from './all-allergens/all-allergens.component';
 
 const routes: Routes = [
-  { path: 'rooms', component: RoomsComponent },
-  { path: 'rooms/add', component: CreateRoomComponent },
-  { path: 'rooms/:id', component: RoomDetailComponent },
-  { path: 'rooms/:id/update', component: UpdateRoomComponent },
   { path: 'profile',
     component: ProfileComponent,
     canActivate:[PatientGuard]
