@@ -48,4 +48,13 @@ loggedIn = false;
   openProfile(): void{
     this.router.navigate(['/profile']);
   }
+
+  openPreferenceHospitalization(): void{
+    this.router.navigate(['/hospitalize-with-preference']);
+  }
+
+  openHome(): void{
+    this.router.navigate(['']);
+  }
+
 }
