@@ -1,7 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./modules/pages/home/home.component";
-
+import { MyAppointmentsComponent} from "./modules/pages/my-appointments/my-appointments.component";
 import {RegistrationComponent} from "./modules/pages/registration/registration.component";
 import {LoginComponent} from "./modules/pages/login/login.component";
 import {SignOutComponent} from "./modules/pages/sign-out/sign-out.component";
@@ -23,6 +23,10 @@ const routes: Routes = [
   {path: 'sign-out',
    component:SignOutComponent,
     canActivate:[PatientGuard]
+  },
+  { path: 'my-appointments',
+    component: MyAppointmentsComponent,
+    canActivate: [PatientGuard]
   }
 ];
 

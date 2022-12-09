@@ -8,7 +8,8 @@ import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { DialogSignComponent } from './sign-out/dialog-sign/dialog-sign.component';
-
+import { MyAppointmentsComponent } from './my-appointments/my-appointments.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -16,15 +17,17 @@ import { DialogSignComponent } from './sign-out/dialog-sign/dialog-sign.componen
     RegistrationComponent,
     SignOutComponent,
     DialogSignComponent,
+    MyAppointmentsComponent,
 
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    AppRoutingModule,
-    MatRadioModule,
-    FormsModule
+    imports: [
+        CommonModule,
+        MaterialModule,
+        AppRoutingModule,
+        MatRadioModule,
+        FormsModule,
+        MatTabsModule
 
-  ]
+    ]
 })
 export class PagesModule { }
