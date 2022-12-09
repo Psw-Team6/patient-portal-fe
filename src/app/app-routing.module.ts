@@ -7,6 +7,8 @@ import {LoginComponent} from "./modules/pages/login/login.component";
 import {SignOutComponent} from "./modules/pages/sign-out/sign-out.component";
 import {PatientGuard} from "./guards/patient-guard.service";
 import {LoginGuard} from "./guards/login.guard";
+import { ScheduleAppointmentComponent } from "./modules/pages/schedule-appointment/schedule-appointment.component";
+
 
 const routes: Routes = [
   { path: '',
@@ -23,6 +25,10 @@ const routes: Routes = [
   {path: 'sign-out',
    component:SignOutComponent,
     canActivate:[PatientGuard]
+  },
+  { path: 'schedule-appointment',
+  component: ScheduleAppointmentComponent,
+  canActivate: [PatientGuard]
   }
 ];
 

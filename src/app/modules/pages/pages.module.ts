@@ -8,7 +8,8 @@ import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { DialogSignComponent } from './sign-out/dialog-sign/dialog-sign.component';
-
+import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
+import {MatStepperModule} from "@angular/material/stepper";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DialogSignComponent } from './sign-out/dialog-sign/dialog-sign.componen
     RegistrationComponent,
     SignOutComponent,
     DialogSignComponent,
+    ScheduleAppointmentComponent,
 
   ],
   imports: [
@@ -23,7 +25,8 @@ import { DialogSignComponent } from './sign-out/dialog-sign/dialog-sign.componen
     MaterialModule,
     AppRoutingModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule
 
   ]
 })
