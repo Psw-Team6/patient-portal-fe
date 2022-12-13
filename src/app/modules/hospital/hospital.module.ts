@@ -13,10 +13,6 @@ import { LoginComponent } from '../pages/login/login.component';
 import {PatientGuard} from "../../guards/patient-guard.service";
 import { GeneralDoctorsAvailableComponent } from './general-doctors-available/general-doctors-available.component';
 import { AllAllergensComponent } from './all-allergens/all-allergens.component';
-import { HospitalizeWithPreferenceComponent } from './hospitalize-with-preference/hospitalize-with-preference.component';
-import { AllDoctorsComponent } from './all-doctors/all-doctors.component';
-import {MatRadioModule} from "@angular/material/radio";
-import { AppointmentSuggestionsComponent } from './appointment-suggestions/appointment-suggestions.component';
 
 const routes: Routes = [
   { path: 'profile',
@@ -40,10 +36,8 @@ const routes: Routes = [
     LoginComponent,
     GeneralDoctorsAvailableComponent,
     AllAllergensComponent,
-    HospitalizeWithPreferenceComponent,
-    AllDoctorsComponent,
-    AllDoctorsComponent,
-    AppointmentSuggestionsComponent
+    MyAppointmentsComponent,
+    AppointmentsPreviewComponent,
   ],
   imports: [
     CommonModule,
@@ -51,8 +45,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    MatRadioModule
+    MatTabsModule
   ],
+  providers: [HttpClientModule],
   exports: [RouterModule, LoginComponent]
 })
 export class HospitalModule { }

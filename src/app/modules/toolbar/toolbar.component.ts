@@ -57,4 +57,9 @@ loggedIn = false;
     this.router.navigate(['']);
   }
 
+
+  openMyAppointments(): void{
+    this.router.navigate(['/my-appointments']);
+  }
+
 }
