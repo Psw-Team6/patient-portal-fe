@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserToken} from "../../hospital/model/UserToken";
-import {TokenStorageService} from "../../hospital/services/token-storage.service";
-import {AppointmentService} from "../../hospital/services/appointment.service";
-import {MyAppointments} from "../../hospital/model/my-appointments.model";
+import {UserToken} from "../model/UserToken";
+import {TokenStorageService} from "../services/token-storage.service";
+import {AppointmentService} from "../services/appointment.service";
+import {MyAppointments} from "../model/my-appointments.model";
 import {MatTabChangeEvent} from "@angular/material/tabs";
 
 @Component({
@@ -18,12 +18,14 @@ export class MyAppointmentsComponent implements OnInit {
     this.userToken = this.tokenStorageService.getUser();
   }
 
+
   ngOnInit(): void {
     this.getPatientAppointments();
   }
 
+
   private readonly getPatientAppointments=()=> {
-    this.appointmentService.getPatientAppointment(this.userToken.id!).subscribe(
+    this.appointmentService.getPatientAppointment(this.userToken.id).subscribe(
       {
         next: response => {
           this.appointments = response;
