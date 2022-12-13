@@ -17,12 +17,18 @@ import {MyAppointmentsComponent} from "./my-appointments/my-appointments.compone
 import {AppointmentsPreviewComponent} from "./my-appointments/appointments-preview/appointments-preview.component";
 import {MatTabsModule} from "@angular/material/tabs";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { AllTendersComponent } from './all-tenders/all-tenders.component';
+import { DetailsTenderComponentComponent } from './all-tenders/details-tender-component/details-tender-component.component';
 
 const routes: Routes = [
   { path: 'profile',
     component: ProfileComponent,
     canActivate:[PatientGuard]
   },
+  { path: 'tenders',
+  component: AllTendersComponent,
+  canActivate:[PatientGuard]
+},
 ];
 
 @NgModule({
@@ -38,6 +44,8 @@ const routes: Routes = [
     AllAllergensComponent,
     MyAppointmentsComponent,
     AppointmentsPreviewComponent,
+    AllTendersComponent,
+    DetailsTenderComponentComponent
   ],
   imports: [
     CommonModule,

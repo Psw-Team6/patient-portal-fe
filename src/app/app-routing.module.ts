@@ -6,6 +6,8 @@ import {LoginComponent} from "./modules/pages/login/login.component";
 import {SignOutComponent} from "./modules/pages/sign-out/sign-out.component";
 import {LoginGuard} from "./guards/login.guard";
 import {MyAppointmentsComponent} from "./modules/hospital/my-appointments/my-appointments.component";
+import { AllTendersComponent } from "./modules/hospital/all-tenders/all-tenders.component";
+import { BloodBankGuard } from "./guards/BloodBankCenter.guard";
 
 const routes: Routes = [
   { path: '',
@@ -25,7 +27,11 @@ const routes: Routes = [
   {
     path: 'my-appointments',
     component: MyAppointmentsComponent
-  }
+  },
+  {path: 'tenders',
+  component:AllTendersComponent,
+   canActivate:[BloodBankGuard]
+ }
 ];
 
 @NgModule({
