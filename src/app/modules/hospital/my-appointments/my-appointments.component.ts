@@ -4,6 +4,9 @@ import {TokenStorageService} from "../services/token-storage.service";
 import {AppointmentService} from "../services/appointment.service";
 import {MyAppointments} from "../model/my-appointments.model";
 import {MatTabChangeEvent} from "@angular/material/tabs";
+import {AppointmentClient, AppointmentResponse} from "../../../api/api-reference";
+
+
 
 @Component({
   selector: 'app-my-appointments',
@@ -11,10 +14,10 @@ import {MatTabChangeEvent} from "@angular/material/tabs";
   styleUrls: ['./my-appointments.component.css']
 })
 export class MyAppointmentsComponent implements OnInit {
-  appointments: MyAppointments[] = [];
+  appointments: AppointmentResponse[] = [];
   currentTabIndex = new Date().getDay() - 1;
   userToken:UserToken;
-  constructor(private appointmentService:AppointmentService, private  tokenStorageService:TokenStorageService) {
+  constructor(private readonly client: AppointmentClient, private  tokenStorageService:TokenStorageService) {
     this.userToken = this.tokenStorageService.getUser();
   }
 
@@ -25,9 +28,10 @@ export class MyAppointmentsComponent implements OnInit {
 
 
   private readonly getPatientAppointments=()=> {
-    this.appointmentService.getPatientAppointment(this.userToken.id).subscribe(
+    this.client.getPatientAppointments(this.userToken.id).subscribe(
       {
         next: response => {
+          console.log(response);
           this.appointments = response;
         }
       }
