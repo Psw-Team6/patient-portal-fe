@@ -1,15 +1,19 @@
 import {AppointmentState, AppointmentType, DateRange} from "../../../api/api-reference";
+import {Patient} from "./patient.model";
 
 export class MyAppointments{
-  emergent: Boolean = false;
-  duration: DateRange = new DateRange();
-  patientId: string = '';
-  doctorId: string = '';
-  appointmentType: AppointmentType = 0;
-  appointmentState: AppointmentState = 0;
+  id?: string;
+  emergent?: boolean;
+  duration?: DateRange | undefined;
+  patientId?: string;
+  patient?: Patient | undefined;
+  appointmentType?: AppointmentType;
+  doctorId?: string;
+  appointmentState?: AppointmentState;
 
   public constructor(obj?:any){
     if(obj) {
+      this.id = obj.id;
       this.emergent = obj.emergent;
       this.duration = obj.duration;
       this.patientId = obj.patientId;

@@ -13,22 +13,23 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { AppointmentsPreviewComponent } from '../hospital/my-appointments/appointments-preview/appointments-preview.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
+
 @NgModule({
   declarations: [
     HomeComponent,
     RegistrationComponent,
     SignOutComponent,
-    DialogSignComponent
+    DialogSignComponent,
 
   ],
-    imports: [
-        CommonModule,
-        MaterialModule,
-        AppRoutingModule,
-        MatRadioModule,
-        FormsModule,
-        MatTabsModule,
-        HttpClientModule
-    ]
+  imports: [
+    CommonModule,
+    MaterialModule,
+    AppRoutingModule,
+    MatRadioModule,
+    FormsModule,
+    MatTabsModule,
+    HttpClientModule
+  ],
 })
 export class PagesModule { }

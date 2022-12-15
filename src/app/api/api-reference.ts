@@ -4805,7 +4805,9 @@ export interface IAppointmentClient {
   getAppointmentPdfReport(id: string, request: AppointmentReportPdfRequest): Observable<void>;
   getAppointmentsForExamination(doctorId: string): Observable<AppointmentResponse[]>;
 }
-
+@Injectable({
+  providedIn: 'root'
+})
 @Injectable()
 export class AppointmentClient implements IAppointmentClient {
   private http: HttpClient;

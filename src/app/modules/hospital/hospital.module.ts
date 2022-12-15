@@ -20,6 +20,14 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { AllTendersComponent } from './all-tenders/all-tenders.component';
 import { DetailsTenderComponentComponent } from './all-tenders/details-tender-component/details-tender-component.component';
 import {HospitalizeWithPreferenceComponent} from "./hospitalize-with-preference/hospitalize-with-preference.component";
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatListModule} from "@angular/material/list";
+import { ScheduleAppointmentComponent } from "./schedule-appointment/schedule-appointment.component";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
+
+
+
 
 const routes: Routes = [
   { path: 'profile',
@@ -51,7 +59,8 @@ const routes: Routes = [
     AppointmentsPreviewComponent,
     AllTendersComponent,
     DetailsTenderComponentComponent,
-    HospitalizeWithPreferenceComponent
+    HospitalizeWithPreferenceComponent,
+    ScheduleAppointmentComponent
   ],
   imports: [
     CommonModule,
@@ -59,8 +68,15 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    MatTabsModule
-  ],
+    MatTabsModule,
+    MatStepperModule,
+    MatListModule,
+    MatDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxMaterialTimepickerModule,
+    ],
+
   providers: [HttpClientModule],
   exports: [RouterModule, LoginComponent]
 })
