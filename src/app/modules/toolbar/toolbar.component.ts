@@ -53,4 +53,8 @@ loggedIn = false;
     this.router.navigate(['/my-appointments']);
   }
 
+  openScheduleAppointment(): void{
+    this.router.navigate(['/schedule-appointment'])
+  }
+
 }

@@ -38,6 +38,8 @@ const routes: Routes = [
  },
  {path: 'schedule-appointment',
   component: ScheduleAppointmentComponent,
+  canActivate: [PatientGuard]
+
   }
 
 ];

@@ -1,15 +1,15 @@
 <div class="container">
   <div class="container-f">
     <mat-stepper [linear]="isLinear" class="example-stepper" [orientation]="(stepperOrientation | async)!">
-      <mat-step   label="Choose your colleague">
+      <mat-step   label="Choose a doctor">
         <div class="ceneter">
 
 
           <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
-            <mat-step label="Choose specialisation">
+            <mat-step label="Choose a specialization">
               <div class="formaa1">
                   <mat-form-field appearance="fill">
-                    <mat-label>Select specialisation</mat-label>
+                    <mat-label>Select specialization</mat-label>
                     <mat-select [(ngModel)]="selectedValue" name="food">
                       <mat-option *ngFor="let specialisation of specialisation" [value]="specialisation" required (onSelectionChange)="filterSpecialisation(specialisation)">
                         {{specialisation}}
@@ -20,10 +20,10 @@
 
               </div>
             </mat-step>
-            <mat-step label="Choose your colleague">
+            <mat-step label="Choose a doctor">
               <div class="formaa1">
                 <mat-form-field appearance="fill">
-                  <mat-label>Select specialisation</mat-label>
+                  <mat-label>Select doctor</mat-label>
                   <mat-select [(ngModel)]="selectedDoctorId"   (selectionChange)="doct()" name="food">
                     <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
                       {{doctor.name}} {{doctor.surname}}
@@ -49,14 +49,14 @@
             <div class="datumi">
 
               <mat-form-field appearance="fill">
-                <mat-label>Insert earliest date</mat-label>
+                <mat-label>Insert the earliest date</mat-label>
                 <input matInput [matDatepicker]="picker" [(ngModel)]="stardDate" (dateChange)="validate()">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
               <mat-form-field appearance="fill" style="margin-left: 80px">
-                <mat-label>Insert end</mat-label>
+                <mat-label>Insert the latest date</mat-label>
                 <input matInput [matDatepicker]="picker1" [(ngModel)]="endDate" (dateChange)="validate()">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>

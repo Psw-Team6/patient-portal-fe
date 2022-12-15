@@ -15,6 +15,7 @@ import {
 import {NgToastService} from "ng-angular-popup";
 import { Moment } from 'moment';
 import { TokenStorageService } from '../services/token-storage.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -41,10 +42,13 @@ export class ScheduleAppointmentComponent implements OnInit {
   selectedDateRange : DateRange = new DateRange()
   bla: true | undefined;
   constructor(private _formBuilder: FormBuilder,breakpointObserver: BreakpointObserver,private readonly client: DoctorClient,
-              private readonly  ngToast:NgToastService,private scheduleClient: ScheduleClient, private tokenStorageService: TokenStorageService) {
+              private readonly  ngToast:NgToastService,private scheduleClient: ScheduleClient, private tokenStorageService: TokenStorageService,
+              private readonly router1:Router, private readonly router:ActivatedRoute) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
       .pipe(map(({matches}) => (matches ? 'horizontal' : 'vertical')));
+      this.patientId = this.router1.getCurrentNavigation()?.extras?.state?.['data']!
+
   }
 
 
@@ -182,6 +186,8 @@ export class ScheduleAppointmentComponent implements OnInit {
     this.scheduleClient.scheduleAppointment(app).subscribe({
       next: res=>{
         this.ngToast.success({detail: 'Success!',summary:"Scheduled appointment!",duration:5000})
+        this.router1.navigateByUrl('/my-appointments');
+
       }
     })
   }

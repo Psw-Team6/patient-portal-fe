@@ -8,6 +8,9 @@
     <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Open personal profile" (click)="openProfile()" aria-label="Open profile">
       <mat-icon>account_circle</mat-icon>
     </button>
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Schedule an appointment" (click)="openScheduleAppointment()" aria-label="Schedule an appointment">
+      <mat-icon>add_box</mat-icon>
+    </button>
     <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Scheduled appointments" (click)="openMyAppointments()" aria-label="Scheduled appointments">
       <mat-icon>calendar_today</mat-icon>
     </button>
