@@ -25,8 +25,8 @@ import {MatListModule} from "@angular/material/list";
 import { ScheduleAppointmentComponent } from "./schedule-appointment/schedule-appointment.component";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
-
-
+import { AppointmentSuggestionsComponent} from "./appointment-suggestions/appointment-suggestions.component";
+import {AllDoctorsComponent} from "./all-doctors/all-doctors.component";
 
 
 const routes: Routes = [
@@ -60,7 +60,9 @@ const routes: Routes = [
     AllTendersComponent,
     DetailsTenderComponentComponent,
     HospitalizeWithPreferenceComponent,
-    ScheduleAppointmentComponent
+    ScheduleAppointmentComponent,
+    AppointmentSuggestionsComponent,
+    AllDoctorsComponent
   ],
   imports: [
     CommonModule,
