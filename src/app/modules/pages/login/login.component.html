@@ -15,7 +15,7 @@
             <input matInput [(ngModel)]="createPatientModel.username" class="mat-input-element" type="text" placeholder="Username" /><br>
             <input matInput [(ngModel)]="createPatientModel.email" class="mat-input-element" type="email" placeholder="E-mail" /><br>
             <input matInput [(ngModel)]="createPatientModel.password" class="mat-input-element" type="password" placeholder="Password" /><br>
-            <input matInput [(ngModel)]="createPatientModel.jmbg" class="mat-input-element" type="text" placeholder="Jmbg" /><br>
+            <input matInput [(ngModel)]="createPatientModel.jmbg.Text" class="mat-input-element" type="text" placeholder="Jmbg" /><br>
             <div class="date-wrapper">
               <input matInput [(ngModel)]="createPatientModel.dateOfBirth" placeholder="Date Of Birth" class="mat-input-element2" [matDatepicker]="picker">
               <mat-datepicker-toggle class="suffix" matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -28,7 +28,7 @@
             <input matInput [(ngModel)]="createPatientModel.address.street" class="mat-input-element" type="text" placeholder="Street" /><br>
             <input matInput [(ngModel)]="createPatientModel.address.streetNumber" class="mat-input-element" type="text" placeholder="Number" /><br>
             <input matInput  [(ngModel)]="createPatientModel.address.postcode" class="mat-input-element" type="text" placeholder="Postal Code" /><br>
-            <input matInput [(ngModel)]="createPatientModel.phone" class="mat-input-element" type="text" placeholder="Phone Number" /><br>
+            <input matInput [(ngModel)]="createPatientModel.phone.ToPhone" class="mat-input-element" type="text" placeholder="Phone Number" /><br>
           </div>
           <div class="grid-item grid-itemBig">
             <app-general-doctors-available (onSelectedDoctor)="onSelectingDoctor($event)"></app-general-doctors-available><br>

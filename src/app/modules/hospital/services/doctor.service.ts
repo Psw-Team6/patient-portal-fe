@@ -10,27 +10,24 @@ import {Doctor, DoctorResponse} from "../../../api/api-reference";
 export class DoctorService {
 
   apiHost: string = 'http://localhost:5000/';
-  headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAllGeneral(): Observable<DoctorResponse[]> {
     return this.http.get<DoctorResponse[]>(this.apiHost + 'api/v1/Doctor/General', {headers: this.headers});
   }
 
-  /*  getRoom(id: number): Observable<Room> {
-     return this.http.get<Room>(this.apiHost + 'api/rooms/' + id, {headers: this.headers});
-   }
+  getAll(): Observable<DoctorResponse[]> {
+    return this.http.get<DoctorResponse[]>(this.apiHost + 'api/v1/Doctor', {headers: this.headers});
+  }
 
-   deleteRoom(id: any): Observable<any> {
-     return this.http.delete<any>(this.apiHost + 'api/rooms/' + id, {headers: this.headers});
-   }
+  deleteRoom(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'api/rooms/' + id, {headers: this.headers});
+  }
 
-   updateRoom(room: any): Observable<any> {
-     return this.http.put<any>(this.apiHost + 'api/rooms/' + room.id, room, {headers: this.headers});
-   } */
-
-  createFeedback(feedback: any): Observable<any> {
-    return this.http.post<any>(this.apiHost + 'api/v1/feedback', feedback, {headers: this.headers});
+  updateRoom(room: any): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'api/rooms/' + room.id, room, {headers: this.headers});
   }
 }

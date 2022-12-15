@@ -15,7 +15,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { MatGridListModule} from "@angular/material/grid-list";
 import {MatDividerModule} from "@angular/material/divider";
-
+import {MatRadioModule} from "@angular/material/radio";
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import {MatDividerModule} from "@angular/material/divider";
     MatNativeDateModule,
     MatSelectModule,
     MatGridListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -54,7 +55,8 @@ import {MatDividerModule} from "@angular/material/divider";
     MatDividerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [
     MatDatepickerModule,

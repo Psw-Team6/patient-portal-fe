@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
     if(!this.isValidInput()){
       return;
     }
+    console.log(this.createPatientModel)
     this.patientService.createPatient(this.createPatientModel).subscribe(
       res => {
         alert("Patient registered(inactive)")
@@ -97,7 +98,7 @@ export class LoginComponent implements OnInit {
       this.toast.error({detail: 'Enter a password!', summary: "Fill all the fields!", duration: 5000})
       return false;
     }
-    if (this.createPatientModel.jmbg == ''){
+    if (this.createPatientModel.jmbg.Text == ''){
       this.toast.error({detail: 'Enter a jmbg!', summary: "Fill all the fields!", duration: 5000})
       return false;
     }
