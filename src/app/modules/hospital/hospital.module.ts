@@ -13,6 +13,13 @@ import { LoginComponent } from '../pages/login/login.component';
 import {PatientGuard} from "../../guards/patient-guard.service";
 import { GeneralDoctorsAvailableComponent } from './general-doctors-available/general-doctors-available.component';
 import { AllAllergensComponent } from './all-allergens/all-allergens.component';
+import {MyAppointmentsComponent} from "./my-appointments/my-appointments.component";
+import {AppointmentsPreviewComponent} from "./my-appointments/appointments-preview/appointments-preview.component";
+import {MatTabsModule} from "@angular/material/tabs";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { AllTendersComponent } from './all-tenders/all-tenders.component';
+import { DetailsTenderComponentComponent } from './all-tenders/details-tender-component/details-tender-component.component';
+import {HospitalizeWithPreferenceComponent} from "./hospitalize-with-preference/hospitalize-with-preference.component";
 
 const routes: Routes = [
   { path: 'profile',
@@ -23,6 +30,10 @@ const routes: Routes = [
     component: HospitalizeWithPreferenceComponent,
     canActivate:[PatientGuard]
   },
+  { path: 'tenders',
+  component: AllTendersComponent,
+  canActivate:[PatientGuard]
+},
 ];
 
 @NgModule({
@@ -38,6 +49,9 @@ const routes: Routes = [
     AllAllergensComponent,
     MyAppointmentsComponent,
     AppointmentsPreviewComponent,
+    AllTendersComponent,
+    DetailsTenderComponentComponent,
+    HospitalizeWithPreferenceComponent
   ],
   imports: [
     CommonModule,
