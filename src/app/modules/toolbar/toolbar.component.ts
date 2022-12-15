@@ -48,4 +48,9 @@ loggedIn = false;
   openProfile(): void{
     this.router.navigate(['/profile']);
   }
+
+  openMyAppointments(): void{
+    this.router.navigate(['/my-appointments']);
+  }
+
 }

@@ -13,13 +13,26 @@ export class LoginGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(!this.tokenStorageService.isLoggedIn()){
+   /*  if(!this.tokenStorageService.isLoggedIn()){
       return true
     }
     this.router.navigate(['home']).then(()=>{
       this.toast.error({detail:"Error",summary:"You have already signed in!",duration:5000});
     });
-    return false;
+    return false; */
+    if(this.tokenStorageService.isLoggedIn() && this.tokenStorageService.getUser().role === 'Patient'){
+      this.router.navigate(['home']).then(()=>{
+        this.toast.error({detail:"Error",summary:"Please sign out!",duration:5000});
+      });
+      return false
+    }
+    if(this.tokenStorageService.isLoggedIn() && this.tokenStorageService.getUser().role === 'BloodBankCenter'){
+      this.router.navigate(['bloodBank']).then(()=>{
+        this.toast.error({detail:"Error",summary:"Please sign out!",duration:5000});
+      });
+      return false
+    }
+    return true
   }
 
 }

@@ -8,8 +8,11 @@ import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
 import { SignOutComponent } from './sign-out/sign-out.component';
 import { DialogSignComponent } from './sign-out/dialog-sign/dialog-sign.component';
-import { ScheduleAppointmentComponent } from './schedule-appointment/schedule-appointment.component';
-import {MatStepperModule} from "@angular/material/stepper";
+import { MyAppointmentsComponent } from '../hospital/my-appointments/my-appointments.component';
+import {MatTabsModule} from "@angular/material/tabs";
+import { AppointmentsPreviewComponent } from '../hospital/my-appointments/appointments-preview/appointments-preview.component';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,6 @@ import {MatStepperModule} from "@angular/material/stepper";
     RegistrationComponent,
     SignOutComponent,
     DialogSignComponent,
-    ScheduleAppointmentComponent,
 
   ],
   imports: [
@@ -26,8 +28,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     AppRoutingModule,
     MatRadioModule,
     FormsModule,
-    MatStepperModule
-
-  ]
+    MatTabsModule,
+    HttpClientModule
+  ],
 })
 export class PagesModule { }
