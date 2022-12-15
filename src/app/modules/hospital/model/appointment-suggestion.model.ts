@@ -1,19 +1,18 @@
 import * as moment from "moment";
+import {Duration} from "./duration.model";
 
 export class AppointmentSuggestionModel {
   doctorId: string = '';
   doctorName: string = 'Neki';
   doctorSurname: string = 'Lekar';
-  startDate: Date = new Date();
-  endDate: Date = new Date();
+  duration: Duration = new Duration();
 
   public constructor(obj?: any) {
     if (obj) {
       this.doctorId = obj.doctorId;
       this.doctorName = obj.doctorName;
       this.doctorSurname = obj.doctorSurname;
-      this.startDate = obj.startDate;
-      this.endDate = obj.endDate;
+      this.duration = obj.duration;
     }
   }
 

@@ -10,7 +10,9 @@ import { BloodBankGuard } from "./guards/BloodBankCenter.guard";
 import { ScheduleAppointmentComponent } from "./modules/hospital/schedule-appointment/schedule-appointment.component";
 import { PatientGuard } from "./guards/patient-guard.service";
 import { MyAppointmentsComponent } from "./modules/hospital/my-appointments/my-appointments.component";
-
+import {
+  HospitalizeWithPreferenceComponent
+} from "./modules/hospital/hospitalize-with-preference/hospitalize-with-preference.component";
 
 const routes: Routes = [
   { path: '',
@@ -20,6 +22,10 @@ const routes: Routes = [
   { path: 'registration',
     component: RegistrationComponent,
     canActivate: [LoginGuard]
+  },
+  { path: 'hospitalize-with-preference',
+    component: HospitalizeWithPreferenceComponent,
+    canActivate: [PatientGuard]
   },
   {path: 'home',
    component: HomeComponent
