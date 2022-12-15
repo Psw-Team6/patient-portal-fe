@@ -1,5 +1,6 @@
 import { Address} from "./address.model";
 import {Jmbg} from "./jmbg.model";
+import {Phone} from "./phone.model";
 
 export class CreatePatientModel {
   username: string = '';
@@ -8,7 +9,7 @@ export class CreatePatientModel {
   surname: string = '';
   email: string = '';
   address: Address = new Address();
-  phone: string = '';
+  phone: Phone = new Phone();
   jmbg: Jmbg = new Jmbg();
   dateOfBirth: Date = new Date();
   doctorId: string = '';

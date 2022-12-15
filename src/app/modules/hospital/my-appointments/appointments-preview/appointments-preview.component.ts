@@ -16,7 +16,7 @@ import {TokenStorageService} from "../../services/token-storage.service";
 export class AppointmentsPreviewComponent implements OnInit {
   @Input() appointments :AppointmentResponse[]=[];
 
-  displayedColumns: string[] = ['Date','start time','finish time','Patient','Cancel'];
+  displayedColumns: string[] = ['Date','start time','finish time','Cancel'];
   tomorrow= new Date();
   @Output() onDelete: EventEmitter<AppointmentResponse[]> = new EventEmitter();
   userToken:UserToken;
