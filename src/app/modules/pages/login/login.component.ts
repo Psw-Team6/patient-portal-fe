@@ -124,7 +124,7 @@ export class LoginComponent implements OnInit {
     })
    console.log(loginRequest);
     this.applicationUserClient.authenticate(loginRequest).subscribe({
-        next: response => {
+      next: response => {
           console.log(response)
           this.tokenStorageService.saveToken(response.token!)
           this.tokenStorageService.saveUser(response.token!)
