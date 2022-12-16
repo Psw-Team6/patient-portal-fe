@@ -7,6 +7,10 @@ import {Router} from "@angular/router";
 import {AppointmentClient, AppointmentResponse} from "../../../../api/api-reference";
 import {MatDialog} from "@angular/material/dialog";
 import {TokenStorageService} from "../../services/token-storage.service";
+import {Patient} from "../../model/patient.model";
+import {MaliciousPatient} from "../../model/malicious-patient.model";
+import {PatientService} from "../../services/patient.service";
+import {MaliciousPatientService} from "../../services/malicious-patient.service";
 
 @Component({
   selector: 'app-appointments-preview',
@@ -16,12 +20,13 @@ import {TokenStorageService} from "../../services/token-storage.service";
 export class AppointmentsPreviewComponent implements OnInit {
   @Input() appointments :AppointmentResponse[]=[];
 
-  displayedColumns: string[] = ['Date','start time','finish time','Patient','Cancel'];
+  displayedColumns: string[] = ['Date','start time','finish time','Cancel'];
   tomorrow= new Date();
   @Output() onDelete: EventEmitter<AppointmentResponse[]> = new EventEmitter();
   userToken:UserToken;
+  public patient: MaliciousPatient = new MaliciousPatient();
 
-  constructor(private readonly router:Router,private  client: AppointmentClient, public dialog: MatDialog,private tokenStorageService:TokenStorageService) {
+  constructor(private maliciousPatientService: MaliciousPatientService, private readonly router:Router,private  client: AppointmentClient, public dialog: MatDialog,private tokenStorageService:TokenStorageService) {
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
     this.userToken = this.tokenStorageService.getUser();
   }
@@ -37,16 +42,21 @@ export class AppointmentsPreviewComponent implements OnInit {
   }
 
   onCancel(id: string) {
-    console.log("Cancel",id)
+    console.log("id:")
+    console.log(this.tokenStorageService.getUser().id)
     this.client.cancelAppointment(id).subscribe({
-        next : _ =>{
-          console.log(this.appointments)
+        next : response =>{
+          alert("success");
+          console.log(response)
           this.appointments = this.appointments.filter((a) => a.id != id);
           console.log(this.appointments)
           this.onDelete.emit()
-        }
+
+          this.maliciousPatientService.maliciousPatientStatus(this.tokenStorageService.getUser().id).subscribe(res => {
+            this.patient = res;
+        })
       }
-    )
+    })
   }
 
   canCancel(date:Date)
