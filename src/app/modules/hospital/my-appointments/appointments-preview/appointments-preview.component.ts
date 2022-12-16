@@ -46,6 +46,7 @@ export class AppointmentsPreviewComponent implements OnInit {
     console.log(this.tokenStorageService.getUser().id)
     this.client.cancelAppointment(id).subscribe({
         next : response =>{
+          alert("success");
           console.log(response)
           this.appointments = this.appointments.filter((a) => a.id != id);
           console.log(this.appointments)

@@ -8,7 +8,7 @@
     <app-appointments-preview (onDelete)="onDelete()" [appointments]="filterAppointmentByTuesday()"></app-appointments-preview>
   </mat-tab>
   <mat-tab label="Wednesday">
-    <app-appointments-preview (onDelete)="onDelete()" [appointments]="filterAppointmentByWednesday()"></app-appointments-preview>
+    <app-appointments-preview id="wednesday" (onDelete)="onDelete()" [appointments]="filterAppointmentByWednesday()"></app-appointments-preview>
   </mat-tab>
   <mat-tab label="Thursday">
     <app-appointments-preview (onDelete)="onDelete()" [appointments]="filterAppointmentByThursday()"></app-appointments-preview>
