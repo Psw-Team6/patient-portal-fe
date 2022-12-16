@@ -28,7 +28,7 @@ export class HospitalizeWithPreferenceComponent implements OnInit {
 
   appointmentResponse: AppointmentResponseModel = new AppointmentResponseModel()
   today = new Date();
-   tomorrow = this.addDays(new Date(), 1);
+   tomorrow = this.addDays(new Date(), 2);
   later = this.addDays(this.today, 16)
   range = new FormGroup({
     start: new FormControl<Date>(this.tomorrow),

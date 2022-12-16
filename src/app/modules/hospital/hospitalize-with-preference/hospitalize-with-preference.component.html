@@ -16,7 +16,7 @@
           <div class="select-container">
             <mat-form-field class="display-block" appearance="fill">
               <mat-label>Enter date range(15 days)</mat-label>
-              <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+              <mat-date-range-input [min]="this.tomorrow" [formGroup]="range" [rangePicker]="picker">
                 <input matStartDate formControlName="start" placeholder="Start date">
                 <input matEndDate formControlName="end" placeholder="End date">
               </mat-date-range-input>
