@@ -16,6 +16,7 @@ import {NgToastService} from "ng-angular-popup";
 import { Moment } from 'moment';
 import { TokenStorageService } from '../services/token-storage.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as moment from "moment/moment";
 
 
 
@@ -25,6 +26,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./schedule-appointment.component.css']
 })
 export class ScheduleAppointmentComponent implements OnInit {
+
 
   stepperOrientation: Observable<StepperOrientation> | undefined;
   selectedValue: any;
@@ -39,6 +41,7 @@ export class ScheduleAppointmentComponent implements OnInit {
   valid = false;
   generatedSpans : DateRange[] = []
   endDate: any;
+  notFound= false;
   selectedDateRange : DateRange = new DateRange()
   bla: true | undefined;
   constructor(private _formBuilder: FormBuilder,breakpointObserver: BreakpointObserver,private readonly client: DoctorClient,
@@ -105,12 +108,12 @@ export class ScheduleAppointmentComponent implements OnInit {
         this.generate()
         return true
       }
+      return false;
     }
     else {
       this.valid = false
       return false
     } 
-    return true;
   }
 
 
@@ -121,10 +124,40 @@ export class ScheduleAppointmentComponent implements OnInit {
       this.client.getFreeTimes(this.selectedDoctorId,dateRange).subscribe({
         next: res =>{
           this.generatedSpans = res
+          this.valid=true
+          this.notFound = false
+        },
+        error: message =>{
+          this.ngToast.error({detail: 'Error!',summary:"No free appointments!",duration:5000})
+          this.valid =false
+          this.notFound = true
+          this.expandRange(dateRange)
+          console.log(this.generatedSpans)
         }
       })
 
 
+  }
+
+  expandRange(range:DateRange){
+    let endDateExpanded = moment(range.to).add(1, "day");
+    let startDateExpanded = moment(range.from).add(-1, "day");
+    var newDateRange = new DateRange()
+    newDateRange.from = startDateExpanded.toDate()
+    newDateRange.to = endDateExpanded.toDate()
+    console.log(newDateRange)
+    console.log(range)
+    this.client.getFreeTimes(this.selectedDoctorId,newDateRange).subscribe({
+      next: res =>{
+        this.generatedSpans = res
+        console.log(res)
+      },
+      error: message =>{
+        this.ngToast.error({detail: 'Error!',summary:"No free appointments!",duration:5000})
+        this.expandRange(newDateRange)
+      }
+
+    })
   }
 
   allSelected() {
@@ -190,6 +223,9 @@ export class ScheduleAppointmentComponent implements OnInit {
 
       }
     })
+  }
+  cancelForward() {
+    this.router1.navigateByUrl('/my-appointment');
   }
 }
 
