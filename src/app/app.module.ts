@@ -12,6 +12,8 @@ import {ApplicationUserClient, DoctorClient, ScheduleClient} from "./api/api-ref
 import {authInterceptorProviders} from "./helpers/auth.interceptor";
 import {NgToastModule} from "ng-angular-popup";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
+import { MatCarouselModule } from 'ng-mat-carousel';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
     HospitalModule,
     MaterialModule,
     NgxMaterialTimepickerModule,
-    NgToastModule
+    NgToastModule,
+    MatCarouselModule.forRoot()
   ],
   providers: [ApplicationUserClient,
               DoctorClient,
