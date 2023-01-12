@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <mat-form-field color="primary" id="feedbackArea" appearance="fill">
         <mat-label >Your feedback here...</mat-label>
-        <textarea  matInput [(ngModel)]="feedback.text"></textarea>
+        <textarea id="textInput"  matInput [(ngModel)]="feedback.text"></textarea>
     </mat-form-field>
     <section class="example-section">
         <mat-checkbox color="primary" labelPosition="before" class="example-margin" [(ngModel)]="feedback.isAnonymous">Anonymous?</mat-checkbox>
@@ -12,7 +12,7 @@
     </section>
     <div mat-dialog-action [align]="'end'">
         <button class="dialogButtonCancel" mat-raised-button color="warn" mat-dialog-close>Cancel</button>
-        <button class="dialogButton" mat-raised-button (click)="createFeedback()" mat-dialog-close>Send</button>
+        <button id="submitFeedback" class="dialogButton" mat-raised-button (click)="createFeedback()" mat-dialog-close>Send</button>
     </div>
-    
+
 </div>

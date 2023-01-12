@@ -11,7 +11,7 @@ export class Patient {
   phone: string = '';
   jmbg: string = '';
   gender: number = 0;
-  allergen: AllergenModel = new AllergenModel();
+  allergies: AllergenModel[]=[];
   doctor: Doctor = new Doctor();
   bloodType: number = 0;
 
@@ -25,7 +25,7 @@ export class Patient {
       this.phone = obj.phone;
       this.jmbg = obj.jmbg;
       this.gender = obj.gender;
-      this.allergen = obj.allergen;
+      this.allergies = obj.allergies;
       this.doctor = obj.doctor;
       this.bloodType = obj.bloodType;
     }

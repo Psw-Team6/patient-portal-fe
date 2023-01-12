@@ -48,4 +48,22 @@ loggedIn = false;
   openProfile(): void{
     this.router.navigate(['/profile']);
   }
+
+  openPreferenceHospitalization(): void{
+    this.router.navigate(['/hospitalize-with-preference']);
+  }
+
+  openHome(): void{
+    this.router.navigate(['']);
+  }
+
+
+  openMyAppointments(): void{
+    this.router.navigate(['/my-appointments']);
+  }
+
+  openScheduleAppointment(): void{
+    this.router.navigate(['/schedule-appointment'])
+  }
+
 }

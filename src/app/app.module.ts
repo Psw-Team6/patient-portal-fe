@@ -8,9 +8,10 @@ import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './modules/toolbar/toolbar.component';
-import {ApplicationUserClient} from "./api/api-reference";
+import {ApplicationUserClient, DoctorClient, ScheduleClient} from "./api/api-reference";
 import {authInterceptorProviders} from "./helpers/auth.interceptor";
 import {NgToastModule} from "ng-angular-popup";
+import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 
 @NgModule({
   declarations: [
@@ -26,9 +27,12 @@ import {NgToastModule} from "ng-angular-popup";
     PagesModule,
     HospitalModule,
     MaterialModule,
+    NgxMaterialTimepickerModule,
     NgToastModule
   ],
   providers: [ApplicationUserClient,
+              DoctorClient,
+              ScheduleClient,
              authInterceptorProviders,],
   bootstrap: [AppComponent]
 })

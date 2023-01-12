@@ -1,19 +1,26 @@
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button (click)="openHome()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>local_hospital</mat-icon>
   </button>
   <span>Hospital</span>
-  <span class="example-spacer"></span>
+  <span class="example-spacer">
+     <a mat-button (click)="openPreferenceHospitalization()">Preference hospitalization</a>
+  </span>
   <div class="example-button-container">
     <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Open personal profile" (click)="openProfile()" aria-label="Open profile">
       <mat-icon>account_circle</mat-icon>
+    </button>
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Schedule an appointment" (click)="openScheduleAppointment()" aria-label="Schedule an appointment">
+      <mat-icon>add_box</mat-icon>
+    </button>
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Scheduled appointments" (click)="openMyAppointments()" aria-label="Scheduled appointments">
+      <mat-icon>calendar_today</mat-icon>
     </button>
     <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Leave your feedback" (click)="openDialog()" aria-label="Leave feedback">
       <mat-icon>feedback</mat-icon>
     </button>
     <button *ngIf="!loggedIn"   mat-raised-button color="primary" class="mat-raised-button" matTooltip="Login" (click)="openLoginForm()" aria-label="Login">Sign in
     </button>
-    <button *ngIf="!loggedIn"  mat-raised-button color="primary" class="mat-raised-button" (click)="openRegistration()" mat-dialog-close>Sign up</button>
     <button *ngIf="loggedIn"  mat-raised-button color="primary" class="mat-raised-button" (click)="onSignOut()" mat-dialog-close>Sign out</button>
   </div>
 </mat-toolbar>

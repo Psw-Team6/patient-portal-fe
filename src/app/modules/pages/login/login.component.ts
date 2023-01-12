@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
     if(!this.isValidInput()){
       return;
     }
+    console.log(this.createPatientModel)
     this.patientService.createPatient(this.createPatientModel).subscribe(
       res => {
         alert("Patient registered(inactive)")
@@ -78,48 +79,39 @@ export class LoginComponent implements OnInit {
   private isValidInput(): boolean {
     if (this.createPatientModel.name == ''){
       this.toast.error({detail: 'Enter a name!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
     }
     if (this.createPatientModel.surname == ''){
       this.toast.error({detail: 'Enter a surname!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
 
     }
     if (this.createPatientModel.username == ''){
       this.toast.error({detail: 'Enter a username!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
     }
     if (this.createPatientModel.email == ''){
       this.toast.error({detail: 'Enter an email!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
     }
     if (this.createPatientModel.password == ''){
       this.toast.error({detail: 'Enter a password!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
     }
-    if (this.createPatientModel.jmbg == ''){
+    if (this.createPatientModel.jmbg.Text == ''){
       this.toast.error({detail: 'Enter a jmbg!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
     }
     if (this.createPatientModel.dateOfBirth.toString() == "" || this.createPatientModel.dateOfBirth == undefined){
       this.toast.error({detail: 'Enter a date of birth!', summary: "Fill all the fields!", duration: 5000})
-      alert("Enter all the fields")
       return false;
     }
     if (this.createPatientModel.doctorId == '' || this.createPatientModel.doctorId == undefined){
       this.toast.error({detail: 'Select a doctor!', summary: "A doctor must be selected...", duration: 5000})
-      alert("Select a doctor")
       return false;
     }
     if (this.createPatientModel.bloodType == 10 || this.createPatientModel.doctorId == undefined){
       this.toast.error({detail: 'Select your blood type!', summary: "Blood type be selected...", duration: 5000})
-      alert("Select a blood type")
       return false;
     }
     return true;
@@ -133,7 +125,7 @@ export class LoginComponent implements OnInit {
     })
    console.log(loginRequest);
     this.applicationUserClient.authenticate(loginRequest).subscribe({
-        next: response => {
+      next: response => {
           console.log(response)
           this.tokenStorageService.saveToken(response.token!)
           this.tokenStorageService.saveUser(response.token!)
