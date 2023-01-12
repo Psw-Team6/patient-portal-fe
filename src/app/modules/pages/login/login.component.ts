@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
       this.toast.error({detail: 'Select a doctor!', summary: "A doctor must be selected...", duration: 5000})
       return false;
     }
-    if (this.createPatientModel.bloodType == 10 || this.createPatientModel.doctorId == undefined){
+    if (this.createPatientModel.bloodType == 10){
       this.toast.error({detail: 'Select your blood type!', summary: "Blood type be selected...", duration: 5000})
       return false;
     }

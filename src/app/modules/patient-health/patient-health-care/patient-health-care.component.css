@@ -1,0 +1,28 @@
+.plot{
+  text-align: center;
+  overflow: hidden;
+}
+canvas {
+  margin: 0 auto;
+  height: 50%;
+  width: 80%;
+}
+h1{
+  font-size: 35px;
+  font-weight: 600;
+  background-image: linear-gradient(to left,#3b4d79, #3C779BFF);
+  color: transparent;
+  -webkit-background-clip: text;
+  text-align: center;
+}
+h2{
+  font-size: 25px;
+  font-weight: 500;
+  background-image: linear-gradient(to left,#3b4d79, #3C779BFF);
+  color: transparent;
+  -webkit-background-clip: text;
+  text-align: center;
+}
+.mg-top{
+  margin-top: 20px;
+}

@@ -7,17 +7,20 @@
      <a mat-button (click)="openPreferenceHospitalization()">Preference hospitalization</a>
   </span>
   <div class="example-button-container">
-    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Open personal profile" (click)="openProfile()" aria-label="Open profile">
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" class="mg-l" matTooltip="Open personal profile" (click)="openProfile()" aria-label="Open profile">
       <mat-icon>account_circle</mat-icon>
     </button>
-    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Schedule an appointment" (click)="openScheduleAppointment()" aria-label="Schedule an appointment">
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" class="mg-l" matTooltip="Schedule an appointment" (click)="openScheduleAppointment()" aria-label="Schedule an appointment">
       <mat-icon>add_box</mat-icon>
     </button>
-    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Scheduled appointments" (click)="openMyAppointments()" aria-label="Scheduled appointments">
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" class="mg-l" matTooltip="Scheduled appointments" (click)="openMyAppointments()" aria-label="Scheduled appointments">
       <mat-icon>calendar_today</mat-icon>
     </button>
-    <button *ngIf="loggedIn" mat-mini-fab color="primary" matTooltip="Leave your feedback" (click)="openDialog()" aria-label="Leave feedback">
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" class="mg-l" matTooltip="Leave your feedback" (click)="openDialog()" aria-label="Leave feedback">
       <mat-icon>feedback</mat-icon>
+    </button>
+    <button *ngIf="loggedIn" mat-mini-fab color="primary" class="mg-l" matTooltip="Your health" (click)="openHealthRecordDialog()" aria-label="Your health">
+      <mat-icon>accessibility icon</mat-icon>
     </button>
     <button *ngIf="!loggedIn"   mat-raised-button color="primary" class="mat-raised-button" matTooltip="Login" (click)="openLoginForm()" aria-label="Login">Sign in
     </button>

@@ -3,6 +3,9 @@ import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angula
 import { CreateFeedbackComponent } from '../hospital/create-feedback/create-feedback.component';
 import {Router} from "@angular/router";
 import {TokenStorageService} from "../hospital/services/token-storage.service";
+import {
+  CreatePatientHealthStateComponent
+} from "../hospital/create-patient-health-state/create-patient-health-state.component";
 
 @Component({
   selector: 'app-toolbar',
@@ -18,8 +21,15 @@ loggedIn = false;
   constructor(public dialog: MatDialog, private router: Router, private tokenService : TokenStorageService) {}
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreateFeedbackComponent, {
-      width: '400px',
+    const dialogRef = this.dialog.open(CreateFeedbackComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  openHealthRecordDialog(): void {
+    const dialogRef = this.dialog.open(CreatePatientHealthStateComponent, {
+      width: '500px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

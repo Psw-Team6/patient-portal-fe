@@ -13,6 +13,8 @@ import { MyAppointmentsComponent } from "./modules/hospital/my-appointments/my-a
 import {
   HospitalizeWithPreferenceComponent
 } from "./modules/hospital/hospitalize-with-preference/hospitalize-with-preference.component";
+import {PatientHealthCareComponent} from "./modules/patient-health/patient-health-care/patient-health-care.component";
+
 
 const routes: Routes = [
   { path: '',
@@ -42,10 +44,15 @@ const routes: Routes = [
   component:AllTendersComponent,
    canActivate:[BloodBankGuard]
  },
- {path: 'schedule-appointment',
-  component: ScheduleAppointmentComponent,
-  canActivate: [PatientGuard]
-
+ {
+   path: 'schedule-appointment',
+   component: ScheduleAppointmentComponent,
+   canActivate: [PatientGuard]
+  },
+  {
+    path: 'your-health',
+    component: PatientHealthCareComponent,
+    canActivate: [PatientGuard]
   }
 
 ];
