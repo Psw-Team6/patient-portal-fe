@@ -1,5 +1,12 @@
 .example-spacer {
     flex: 1 1 auto;
+    padding: 2%;
+}
+
+.example-icon {
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 45px;
 }
 
 mat-toolbar {
@@ -9,4 +16,7 @@ mat-toolbar {
 
 .mat-raised-button {
   margin-left: 8px;
+}
+.mg-l{
+  margin-left: 10px;
 }

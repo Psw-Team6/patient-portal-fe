@@ -1,31 +1,65 @@
-img {
-    width: 100%;
-    max-height: 500px;
+.container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 0;
+  margin: 0;
 }
 
-.centered-text-on-image {
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    color: white;
-    align-items: center;
+.hero-image {
+  background-image: url("/assets/hospital5.jpg");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
 
 mat-card-content {
-    font-size: large;
+  font-size: large;
 }
 
+.carouselImage { width:100%; max-height: 300px; }
+::ng-deep .container-fluid { padding: 0 !important; }
+
 .example-card{
-    border-radius: 20px;
-    border-color: black;
-    border: 30px black;
-    margin-top: 10px;
-    background-color: #E4E9F1;
+  border-radius: 20px;
+  border-color: black;
+  border: 30px black;
+  margin-top: 10px;
+  background-color: #E4E9F1;
+}
+
+.container-fluid {
+  margin: 0px 100px 100px 100px;
 }
 
 .feedback-title{
-    margin: 5px;
-    font-size: larger;
+  margin: 5px;
+  font-size: larger;
 }

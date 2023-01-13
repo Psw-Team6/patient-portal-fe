@@ -1,0 +1,41 @@
+<h1 mat-dialog-title class="c-text">Patient health state</h1>
+<div mat-dialog-content>
+  <form class="example-form">
+    <mat-form-field color="primary"  class="input-b" appearance="fill">
+      <mat-label >Enter lower pressure</mat-label>
+      <input  matInput [(ngModel)]="lowerPressure" type="number" name="lowerPressure">
+    </mat-form-field>
+    <mat-form-field color="primary" class="input-b" appearance="fill">
+      <mat-label >Enter upper pressure</mat-label>
+      <input  matInput [(ngModel)]="upperPressure" type="number" name="upperPressure">
+    </mat-form-field>
+    <mat-form-field color="primary" class="input-b" appearance="fill">
+      <mat-label >Enter sugar level</mat-label>
+      <input  matInput [(ngModel)]="sugarLevel" type="number" name="sugarLevel">
+    </mat-form-field>
+    <mat-form-field color="primary" class="input-b" appearance="fill">
+      <mat-label >Enter weight</mat-label>
+      <input  matInput [(ngModel)]="weight" type="number" name="weight">
+    </mat-form-field>
+    <mat-form-field color="primary" class="input-b" appearance="fill">
+      <mat-label >Enter bodyfat percent %</mat-label>
+      <input  matInput [(ngModel)]="bodyFatPercent" type="number" name="bodyFatPercent">
+    </mat-form-field>
+    <div *ngIf="loaded && patient.gender===1">
+    <mat-form-field color="primary" class="input-b" appearance="fill">
+      <mat-label >Enter menstrual start date</mat-label>
+      <input  matInput [(ngModel)]="from" type="date" name="from">
+    </mat-form-field>
+    <mat-form-field color="primary" class="input-b" appearance="fill">
+      <mat-label >Enter menstrual start date</mat-label>
+      <input  matInput [(ngModel)]="to" type="date" name="to">
+    </mat-form-field>
+    </div>
+
+  <div mat-dialog-action [align]="'center'">
+    <button class="dialogButton" mat-raised-button mat-dialog-close>Close</button>
+    <button id="submitFeedback" class="dialogButton" mat-raised-button (click)="createRecord()">Submit</button>
+  </div>
+  </form>
+
+</div>

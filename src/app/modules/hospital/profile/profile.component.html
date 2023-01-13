@@ -1,8 +1,6 @@
-
-
-
-<mat-card class="name-card">
+<mat-card class="name-card mat-card-flat flex-card">
   <mat-card-title class="class-patient">Patient: {{patient.name}} {{patient.surname}}</mat-card-title>
+  <button  mat-raised-button color="primary" class="mat-raised-button class-butt" (click)="onHealthClick()">Your health</button>
   <mat-card-content></mat-card-content>
 </mat-card>
 <div>

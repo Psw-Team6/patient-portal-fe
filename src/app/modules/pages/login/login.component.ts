@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
     if(!this.isValidInput()){
       return;
     }
+    console.log(this.createPatientModel)
     this.patientService.createPatient(this.createPatientModel).subscribe(
       res => {
         alert("Patient registered(inactive)")
@@ -97,7 +98,7 @@ export class LoginComponent implements OnInit {
       this.toast.error({detail: 'Enter a password!', summary: "Fill all the fields!", duration: 5000})
       return false;
     }
-    if (this.createPatientModel.jmbg == ''){
+    if (this.createPatientModel.jmbg.Text == ''){
       this.toast.error({detail: 'Enter a jmbg!', summary: "Fill all the fields!", duration: 5000})
       return false;
     }
@@ -109,7 +110,7 @@ export class LoginComponent implements OnInit {
       this.toast.error({detail: 'Select a doctor!', summary: "A doctor must be selected...", duration: 5000})
       return false;
     }
-    if (this.createPatientModel.bloodType == 10 || this.createPatientModel.doctorId == undefined){
+    if (this.createPatientModel.bloodType == 10){
       this.toast.error({detail: 'Select your blood type!', summary: "Blood type be selected...", duration: 5000})
       return false;
     }
@@ -124,7 +125,7 @@ export class LoginComponent implements OnInit {
     })
    console.log(loginRequest);
     this.applicationUserClient.authenticate(loginRequest).subscribe({
-        next: response => {
+      next: response => {
           console.log(response)
           this.tokenStorageService.saveToken(response.token!)
           this.tokenStorageService.saveUser(response.token!)

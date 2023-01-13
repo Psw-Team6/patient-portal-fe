@@ -1,7 +1,6 @@
-<div>
-  <div>
-    <img cImg fluid src="assets/hospital5.jpg" />
-    <div class="centered-text-on-image">
+<div xmlns="http://www.w3.org/1999/html">
+  <div class="hero-image">
+    <div class="hero-text">
       <h1 style="font-size:30px">Health is everything. We can do anything.</h1>
       <br>
       <h2>
@@ -10,9 +9,8 @@
       <h3>We are located in Novi Sad, at Alberta Ajnstajna Street No. 1. <br>
         We provide patients with a complete medical service, from diagnostics <br>
         to surgical interventions towards cure, respecting all the requirements <br>
-        of the modern medical profession. </h3> 
+        of the modern medical profession. </h3>
       <h3 style="font-size:20px">Together we can and do everything for your health.</h3>
-
     </div>
   </div>
   <div class="feedback-title">
@@ -20,7 +18,7 @@
     <h1>What our patients say about us?</h1>
     <br>
   </div>
-  <div (ngModel)="feedbacks">
+  <div>
     <div *ngFor="let feedback of feedbacks">
       <mat-card class="example-card">
         <mat-card-title-group>
@@ -40,4 +38,16 @@
       </mat-card>
     </div>
   </div>
+
+  <ngb-carousel>
+    <ng-template ngbSlide *ngFor="let slide of news">
+      <div class="picsum-img-wrapper">
+        <img class="carouselImage" [src]="'data:image/jpeg;base64,' + slide.base64image" />
+      </div>
+      <div class="carousel-caption">
+        <h1>{{slide.title}}</h1>
+        <p>{{slide.content}}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
 </div>

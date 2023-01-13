@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Request blood unit amount:</h1>
+<div mat-dialog-content>
+    <div>
+        <mat-label>A+: {{getBloodUnitAmount(0)}}</mat-label>
+    </div>
+    <div>
+       <mat-label>A-: {{getBloodUnitAmount(1)}}</mat-label>  
+    </div>
+    <div>
+        <mat-label>B+: {{getBloodUnitAmount(2)}}</mat-label>
+    </div>
+    <div>
+        <mat-label>B-: {{getBloodUnitAmount(3)}}</mat-label>
+    </div>
+    <div>
+         <mat-label>AB+: {{getBloodUnitAmount(4)}}</mat-label>
+    </div>
+    <div>
+         <mat-label>AB-: {{getBloodUnitAmount(5)}}</mat-label>
+    </div>
+    <div>
+         <mat-label>O+: {{getBloodUnitAmount(6)}}</mat-label>
+    </div>
+   <div>
+    <mat-label>O-: {{getBloodUnitAmount(7)}}</mat-label>
+   </div>
+   
+    <mat-form-field color="primary" id="tenderOffer" name="fieldName" ngDefaultControl appearance="fill">
+        <mat-label>Your price:</mat-label>
+        <input  matInput [(ngModel)]="price"/>
+    </mat-form-field>
+    <mat-form-field appearance="fill" name="fieldName" ngDefaultControl [(ngModel)]="realizationDate" >
+        <mat-label>Date</mat-label>
+        <input matInput [(ngModel)]="realizationDate" [matDatepicker]="picker" [min]="todayDate" >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    <div mat-dialog-action [align]="'end'">
+        <button class="dialogButtonCancel" mat-raised-button color="warn" mat-dialog-close (click)="close()">Cancel</button>
+        <button class="dialogButton" mat-raised-button (click)="addOffer()" mat-dialog-close>Send</button>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<mat-form-field appearance="fill" class="input-schedule">
+  <mat-label>Select a doctor</mat-label>
+  <mat-select [(ngModel)]="selectedItem" (ngModelChange)="selectedDoctor($event)">
+    <mat-option *ngFor="let doctor of doctors" [value]="doctor.id">
+      {{doctor.name}}
+      {{doctor.surname}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
