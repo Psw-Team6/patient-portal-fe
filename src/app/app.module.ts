@@ -21,7 +21,6 @@ import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import {PatientHealthModule} from "./modules/patient-health/patient-health.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +39,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgToastModule,
     PatientHealthModule,
     NgbModule,
+    NgToastModule
   ],
   providers: [ApplicationUserClient,
               DoctorClient,
