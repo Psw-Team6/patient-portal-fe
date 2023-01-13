@@ -20,6 +20,7 @@ import {NgToastModule} from "ng-angular-popup";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import {PatientHealthModule} from "./modules/patient-health/patient-health.module";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import {PatientHealthModule} from "./modules/patient-health/patient-health.modul
     MaterialModule,
     NgxMaterialTimepickerModule,
     NgToastModule,
-    PatientHealthModule
+    PatientHealthModule,
   ],
   providers: [ApplicationUserClient,
               DoctorClient,

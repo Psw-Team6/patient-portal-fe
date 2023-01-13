@@ -1,31 +1,33 @@
-img {
-    width: 100%;
-    max-height: 500px;
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
 }
 
-.centered-text-on-image {
-    position: absolute;
-    top: 45%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    color: white;
-    align-items: center;
+.centered {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
+.image {
+
+}
 
 mat-card-content {
-    font-size: large;
+  font-size: large;
 }
 
 .example-card{
-    border-radius: 20px;
-    border-color: black;
-    border: 30px black;
-    margin-top: 10px;
-    background-color: #E4E9F1;
+  border-radius: 20px;
+  border-color: black;
+  border: 30px black;
+  margin-top: 10px;
+  background-color: #E4E9F1;
 }
 
 .feedback-title{
-    margin: 5px;
-    font-size: larger;
+  margin: 5px;
+  font-size: larger;
 }

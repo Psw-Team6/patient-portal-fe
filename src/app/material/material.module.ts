@@ -16,11 +16,13 @@ import {MatSelectModule} from '@angular/material/select';
 import { MatGridListModule} from "@angular/material/grid-list";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatRadioModule} from "@angular/material/radio";
+import { MatCarouselModule } from 'ng-mat-carousel';
 
 
 @NgModule({
   declarations: [],
   imports: [
+    MatCarouselModule.forRoot(),
     CommonModule,
     MatInputModule,
     MatButtonModule,
@@ -37,7 +39,7 @@ import {MatRadioModule} from "@angular/material/radio";
     MatSelectModule,
     MatGridListModule,
     MatDividerModule,
-    MatRadioModule
+    MatRadioModule,
   ],
   exports: [
     CommonModule,

@@ -12,6 +12,7 @@ import { MyAppointmentsComponent } from '../hospital/my-appointments/my-appointm
 import {MatTabsModule} from "@angular/material/tabs";
 import { AppointmentsPreviewComponent } from '../hospital/my-appointments/appointments-preview/appointments-preview.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {MatCarouselModule} from "ng-mat-carousel";
 
 
 @NgModule({
@@ -22,14 +23,15 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     DialogSignComponent,
 
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    AppRoutingModule,
-    MatRadioModule,
-    FormsModule,
-    MatTabsModule,
-    HttpClientModule
-  ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        AppRoutingModule,
+        MatRadioModule,
+        FormsModule,
+        MatTabsModule,
+        HttpClientModule,
+        MatCarouselModule
+    ],
 })
 export class PagesModule { }
