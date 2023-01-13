@@ -13,6 +13,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import { AppointmentsPreviewComponent } from '../hospital/my-appointments/appointments-preview/appointments-preview.component';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {MatCarouselModule} from "ng-mat-carousel";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatCarouselModule} from "ng-mat-carousel";
         FormsModule,
         MatTabsModule,
         HttpClientModule,
-        MatCarouselModule
+        MatCarouselModule,
+        NgbModule
     ],
 })
 export class PagesModule { }

@@ -19,6 +19,7 @@ import {authInterceptorProviders} from "./helpers/auth.interceptor";
 import {NgToastModule} from "ng-angular-popup";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import {PatientHealthModule} from "./modules/patient-health/patient-health.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {PatientHealthModule} from "./modules/patient-health/patient-health.modul
     NgxMaterialTimepickerModule,
     NgToastModule,
     PatientHealthModule,
+    NgbModule,
   ],
   providers: [ApplicationUserClient,
               DoctorClient,
