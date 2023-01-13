@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   public dataSourceNewsFromBloodBank = new MatTableDataSource<NewsFromBloodBank>();
   public isNewsEmpty: boolean = false;
   public new: NewsFromBloodBank = new NewsFromBloodBank();
+  images = [944, 1011, 984, 34, 21, 105].map((n) => `https://picsum.photos/id/${n}/900/500`);
 
   constructor(private newsService: NewsService, private feedbackService: FeedbackService, private router: Router,private token: TokenStorageService) { }
 

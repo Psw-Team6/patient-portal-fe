@@ -4,6 +4,8 @@
   color: white;
 }
 
+
+
 .centered {
   position: absolute;
   top: 58%;
@@ -12,6 +14,8 @@
 }
 
 .image {
+  width: 100%;
+  object-fit: fill;
 
 }
 
@@ -19,12 +23,19 @@ mat-card-content {
   font-size: large;
 }
 
+.carouselImage { width:160%; max-height: 600px; }
+::ng-deep .container-fluid { padding: 0 !important; }
+
 .example-card{
   border-radius: 20px;
   border-color: black;
   border: 30px black;
   margin-top: 10px;
   background-color: #E4E9F1;
+}
+
+.container-fluid {
+  margin: 0px 100px 100px 100px;
 }
 
 .feedback-title{

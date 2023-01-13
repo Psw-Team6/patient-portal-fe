@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/html">
 
   <div class="container">
-    <img src="assets/hospital5.jpg" id="image" style="width:100%; height: 450px">
+    <img src="assets/hospital5.jpg" class="image" style="width:100%; height: 450px">
     <div class="centered">
       <h1 style="font-size:30px">Health is everything. We can do anything.</h1>
       <br>
@@ -39,8 +39,8 @@
       </mat-card>
     </div>
   </div>
-  <div>
-    <mat-carousel
+  <div class="container-fluid">
+    <mat-carousel class="carousel"
       timings="250ms ease-in"
       [autoplay]="true"
       color="accent"
@@ -51,10 +51,29 @@
       [useKeyboard]="true"
       [useMouseWheel]="false"
       orientation="ltr">
-      <ng-container *ngFor="let slide of news; let i = index">
+      <ng-container *ngFor="let slide of news ; let i = index">
         <mat-carousel-slide
-          #matCarouselSlide>
-          <img [src]="'data:image/jpeg;base64,' + slide.base64image">
+          #matCarouselSlide
+          [image]="'data:image/jpeg;base64,' + slide.base64image"
+          [textContent]="news"
+          overlayColor="#000000"
+          [hideOverlay]="true">
+          <ng-container>
+            <div
+              style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center"
+            >
+              <h1>{{ i }}</h1>
+              <p>disabled: {{ matCarouselSlide.disabled }}</p>
+              <button
+                mat-flat-button
+                (click)="
+                    matCarouselSlide.disabled = !matCarouselSlide.disabled
+                  "
+              >
+                Click me!
+              </button>
+            </div>
+          </ng-container>
         </mat-carousel-slide>
       </ng-container>
 
@@ -64,4 +83,5 @@
   <div *ngFor="let slide of news">
     <img [src]="'data:image/jpeg;base64,' + slide.base64image">
   </div>
+
 </div>
