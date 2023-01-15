@@ -28,6 +28,7 @@ import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import { AppointmentSuggestionsComponent} from "./appointment-suggestions/appointment-suggestions.component";
 import {AllDoctorsComponent} from "./all-doctors/all-doctors.component";
 import { CreatePatientHealthStateComponent } from './create-patient-health-state/create-patient-health-state.component';
+import {CalendarCommonModule, CalendarMonthModule, CalendarWeekModule} from "angular-calendar";
 
 
 const routes: Routes = [
@@ -79,7 +80,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     NgxMaterialTimepickerModule,
-    ],
+    CalendarCommonModule,
+    CalendarWeekModule,
+    CalendarMonthModule,
+  ],
 
   providers: [HttpClientModule],
   exports: [RouterModule, LoginComponent]
