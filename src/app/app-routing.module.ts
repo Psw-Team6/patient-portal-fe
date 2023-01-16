@@ -17,7 +17,7 @@ import {PatientHealthCareComponent} from "./modules/patient-health/patient-healt
 
 
 const routes: Routes = [
-  { path: '',
+  { path: 'sign-up',
     component: LoginComponent,
     canActivate: [LoginGuard]
   },
@@ -29,7 +29,7 @@ const routes: Routes = [
     component: HospitalizeWithPreferenceComponent,
     canActivate: [PatientGuard]
   },
-  {path: 'home',
+  {path: '',
    component: HomeComponent
   },
   {path: 'sign-out',

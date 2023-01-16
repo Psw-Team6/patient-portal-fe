@@ -130,7 +130,7 @@ export class LoginComponent implements OnInit {
           this.tokenStorageService.saveToken(response.token!)
           this.tokenStorageService.saveUser(response.token!)
           this.toast.success({detail: 'Success!', summary: response.message, duration: 5000})
-          this.router.navigate(['home']).then(
+          this.router.navigate(['']).then(
             ()=>{
               window.location.reload();
             }
