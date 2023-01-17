@@ -4,3 +4,59 @@
     margin-right: 10%;
     margin-top: 2%;
   }
+
+  .header-holiday {
+    background-color: #1B273C;
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+   -webkit-background-clip: text;
+    text-align: center;
+    margin-left: 7rem;
+  }
+
+  .title{
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .container-holiday{
+    background-color: #fff;
+  
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+    0 10px 10px rgba(0,0,0,0.22);
+    position: center;
+    overflow: hidden;
+    max-width: 100%;
+    min-height: 570px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:  10px;
+    max-height: 98%;
+    width: 60%;
+  }
+
+  .flex-c{
+    display: flex;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  .example-container {
+    position: relative;
+  }
+
+
+
+  .title-container-holiday{
+    color: #fff;
+    font-size: 26px;
+    padding-bottom: 2%;
+    text-align: center;
+    background-color: #3c1b1e;
+    padding-top:2%;
+  }

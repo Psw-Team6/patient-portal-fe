@@ -1,6 +1,8 @@
+import { TemplateBindingParseResult } from '@angular/compiler';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Tender } from 'src/app/api/api-reference';
 import { BloodUnitAmount, TenderOffer } from '../../model/tender.model';
 import { AllTendersComponent } from '../all-tenders.component';
 
@@ -8,7 +10,9 @@ export interface DialogData {
   comment: string;
   bloodUnitAmount : BloodUnitAmount [];
   price: number;
+  tender: Tender;
   realizationDate: Date;
+  bloodBankName:string;
 }
 
 @Component({
@@ -19,7 +23,7 @@ export interface DialogData {
 
 
 export class DetailsTenderComponentComponent {
-  tenderOffer : TenderOffer = new TenderOffer();
+  tenderOffer : TenderOffer = new TenderOffer(); 
   bloodUnitAmount : BloodUnitAmount []=[];
   price: number | undefined;
   realizationDate: Date | undefined;
@@ -28,6 +32,10 @@ export class DetailsTenderComponentComponent {
     @Inject(MAT_DIALOG_DATA) public data: DialogData,) {
       this.todayDate=new Date();
       this.bloodUnitAmount=data.bloodUnitAmount;
+      if (data.tender.tenderOffer?.find(x=>x.bloodBankName===data.bloodBankName)){
+        this.price = data.tender.tenderOffer?.find(x=>x.bloodBankName===data.bloodBankName)?.price;
+        this.realizationDate=data.tender.tenderOffer?.find(x=>x.bloodBankName===data.bloodBankName)?.realizationDate;
+      }
     }
 
     public close(){

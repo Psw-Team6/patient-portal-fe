@@ -130,11 +130,21 @@ export class LoginComponent implements OnInit {
           this.tokenStorageService.saveToken(response.token!)
           this.tokenStorageService.saveUser(response.token!)
           this.toast.success({detail: 'Success!', summary: response.message, duration: 5000})
-          this.router.navigate(['home']).then(
+          if(this.tokenStorageService.getUser().role === 'Patient') {
+              this.router.navigate(['home']).then(
+              ()=>{
+                window.location.reload();
+              }
+            );
+          }
+          if(this.tokenStorageService.getUser().role === 'BloodBankCenter') {
+            this.router.navigate(['tenders']).then(
             ()=>{
               window.location.reload();
             }
           );
+        }
+          
         },
         error: message => {
           console.log(message.Error)

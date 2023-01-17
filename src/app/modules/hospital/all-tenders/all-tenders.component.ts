@@ -31,6 +31,7 @@ export class AllTendersComponent implements OnInit {
   ngOnInit(): void {
     this.service.getTenders().subscribe(res => {
       this.allTenders = res;
+      this.allTenders = this.allTenders.filter(x=>x.status==0);
       this.dataSource.data = this.allTenders;
     })
   }
@@ -55,7 +56,10 @@ openDialog(request:Tender): void {
   this.request=request;
   const dialogRef = this.dialog.open(DetailsTenderComponentComponent, {
     width: '400px',
-    data: {bloodUnitAmount: request.bloodUnitAmount},
+    data: {bloodUnitAmount: request.bloodUnitAmount,
+            tender : request,
+            bloodBankName : this.tokenStorageService.getUser().name
+},
   });
   dialogRef.afterClosed().subscribe(result => {
     this.tenderOffer = result;

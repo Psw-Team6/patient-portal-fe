@@ -11,7 +11,8 @@ export enum BloodType {
 
 export class BloodUnitAmount {
     bloodType: BloodType | undefined;
-    amount: number | undefined;    
+    amount: number | undefined;  
+    tenderOffer: TenderOffer1 | undefined;
 }
 export enum StatusTender {
 Open=0,
@@ -21,6 +22,12 @@ Close=2
 
 export class TenderOffer {
   tender : Tender | undefined;
+  price : number | undefined;
+  realizationDate:Date | undefined;
+  bloodBankName: string | undefined;
+}
+
+export class TenderOffer1 {
   price : number | undefined;
   realizationDate:Date | undefined;
   bloodBankName: string | undefined;

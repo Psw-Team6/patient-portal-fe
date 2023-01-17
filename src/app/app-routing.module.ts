@@ -5,16 +5,9 @@ import {RegistrationComponent} from "./modules/pages/registration/registration.c
 import {LoginComponent} from "./modules/pages/login/login.component";
 import {SignOutComponent} from "./modules/pages/sign-out/sign-out.component";
 import {LoginGuard} from "./guards/login.guard";
+import {MyAppointmentsComponent} from "./modules/hospital/my-appointments/my-appointments.component";
 import { AllTendersComponent } from "./modules/hospital/all-tenders/all-tenders.component";
 import { BloodBankGuard } from "./guards/BloodBankCenter.guard";
-import { ScheduleAppointmentComponent } from "./modules/hospital/schedule-appointment/schedule-appointment.component";
-import { PatientGuard } from "./guards/patient-guard.service";
-import { MyAppointmentsComponent } from "./modules/hospital/my-appointments/my-appointments.component";
-import {
-  HospitalizeWithPreferenceComponent
-} from "./modules/hospital/hospitalize-with-preference/hospitalize-with-preference.component";
-import {PatientHealthCareComponent} from "./modules/patient-health/patient-health-care/patient-health-care.component";
-
 
 const routes: Routes = [
   { path: '',
@@ -25,16 +18,11 @@ const routes: Routes = [
     component: RegistrationComponent,
     canActivate: [LoginGuard]
   },
-  { path: 'hospitalize-with-preference',
-    component: HospitalizeWithPreferenceComponent,
-    canActivate: [PatientGuard]
-  },
   {path: 'home',
    component: HomeComponent
   },
   {path: 'sign-out',
-   component:SignOutComponent,
-    canActivate:[PatientGuard]
+   component:SignOutComponent
   },
   {
     path: 'my-appointments',
@@ -43,18 +31,7 @@ const routes: Routes = [
   {path: 'tenders',
   component:AllTendersComponent,
    canActivate:[BloodBankGuard]
- },
- {
-   path: 'schedule-appointment',
-   component: ScheduleAppointmentComponent,
-   canActivate: [PatientGuard]
-  },
-  {
-    path: 'your-health',
-    component: PatientHealthCareComponent,
-    canActivate: [PatientGuard]
-  }
-
+ }
 ];
 
 @NgModule({

@@ -1,27 +1,27 @@
 <h1 mat-dialog-title>Request blood unit amount:</h1>
 <div mat-dialog-content>
-    <div>
+    <div *ngIf="getBloodUnitAmount(0)!=0">
         <mat-label>A+: {{getBloodUnitAmount(0)}}</mat-label>
     </div>
-    <div>
+    <div *ngIf="getBloodUnitAmount(1)!=0">
        <mat-label>A-: {{getBloodUnitAmount(1)}}</mat-label>  
     </div>
-    <div>
+    <div *ngIf="getBloodUnitAmount(2)!=0">
         <mat-label>B+: {{getBloodUnitAmount(2)}}</mat-label>
     </div>
-    <div>
+    <div *ngIf="getBloodUnitAmount(3)!=0">
         <mat-label>B-: {{getBloodUnitAmount(3)}}</mat-label>
     </div>
-    <div>
+    <div *ngIf="getBloodUnitAmount(4)!=0">
          <mat-label>AB+: {{getBloodUnitAmount(4)}}</mat-label>
     </div>
-    <div>
+    <div *ngIf="getBloodUnitAmount(5)!=0">
          <mat-label>AB-: {{getBloodUnitAmount(5)}}</mat-label>
     </div>
-    <div>
+    <div *ngIf="getBloodUnitAmount(6)!=0">
          <mat-label>O+: {{getBloodUnitAmount(6)}}</mat-label>
     </div>
-   <div>
+   <div *ngIf="getBloodUnitAmount(7)!=0">
     <mat-label>O-: {{getBloodUnitAmount(7)}}</mat-label>
    </div>
    
@@ -30,7 +30,7 @@
         <input  matInput [(ngModel)]="price"/>
     </mat-form-field>
     <mat-form-field appearance="fill" name="fieldName" ngDefaultControl [(ngModel)]="realizationDate" >
-        <mat-label>Date</mat-label>
+        <mat-label>Deadline</mat-label>
         <input matInput [(ngModel)]="realizationDate" [matDatepicker]="picker" [min]="todayDate" >
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
