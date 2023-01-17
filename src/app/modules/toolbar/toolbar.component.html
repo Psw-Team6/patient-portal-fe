@@ -3,7 +3,7 @@
     <mat-icon>local_hospital</mat-icon>
     Hospital</button>
   <span class="example-spacer">
-     <button *ngIf="loggedIn && isPatient" mat-raised-button color="primary" class="mg-l" matTooltip="Schedule an appointment with preference" (click)="openScheduleAppointment()" aria-label="Schedule an appointment">
+     <button *ngIf="loggedIn && isPatient" mat-raised-button color="primary" class="mg-l" matTooltip="Schedule an appointment with preference" (click)="openPreferenceHospitalization()" aria-label="Schedule an appointment">
       Schedule with preference
     </button>
     <button *ngIf="loggedIn && isPatient" mat-raised-button color="primary" class="mg-l" matTooltip="Schedule an appointment" (click)="openScheduleAppointment()" aria-label="Schedule an appointment">
