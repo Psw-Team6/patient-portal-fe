@@ -3,6 +3,13 @@
     padding: 2%;
 }
 
+.hospital-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+}
+
 .example-icon {
   align-items: center;
   justify-content: center;
