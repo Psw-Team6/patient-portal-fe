@@ -44,7 +44,7 @@ mat-card-content {
   font-size: large;
 }
 
-.carouselImage { width:100%; max-height: 300px; }
+.carouselImage { width:100%; max-height: 450px; }
 ::ng-deep .container-fluid { padding: 0 !important; }
 
 .example-card{
