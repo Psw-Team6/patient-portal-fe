@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Feedback } from '../model/feedback.model';
 import { FeedbackService } from '../services/feedback.service.service';
 import {TokenStorageService} from "../services/token-storage.service";
+import {NgToastService} from "ng-angular-popup";
 
 @Component({
   selector: 'app-create-feedback',
@@ -16,17 +17,17 @@ export class CreateFeedbackComponent implements OnInit {
   }
   public feedback: Feedback = new Feedback();
 
-  constructor(private tokenStorageService: TokenStorageService, private feedbackService: FeedbackService, private router: Router) { }
+  constructor(private tokenStorageService: TokenStorageService, private feedbackService: FeedbackService, private router: Router, private alert: NgToastService) { }
 
   public createFeedback() {
     if (!this.isValidInput()){
-      alert("Feedback cannot be empty.");
+      this.alert.error({detail: 'Error!', summary: "Feedback cannot be empty.", duration: 5000})
       return;
     }
     try {
       this.feedback.patientId = this.tokenStorageService.getUser().id;
       this.feedbackService.createFeedback(this.feedback).subscribe(res => {
-      alert("Feedback sent for review.")
+        this.alert.success({detail: 'Successes!', summary: "Feedback sent for review.", duration: 5000})
       this.router.navigate(['/home']);
     });
   } catch(error) {
