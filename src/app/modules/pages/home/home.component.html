@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/html">
   <div class="hero-image">
     <div class="hero-text">
-      <h1 style="font-size:30px">Health is everything. We can do anything.</h1>
+      <!-- <h1 style="font-size:30px">Health is everything. We can do anything.</h1>
       <br>
       <h2>
         We are NEW Hospital – a new and state-of-the-art general hospital in the region.
@@ -10,15 +10,35 @@
         We provide patients with a complete medical service, from diagnostics <br>
         to surgical interventions towards cure, respecting all the requirements <br>
         of the modern medical profession. </h3>
-      <h3 style="font-size:20px">Together we can and do everything for your health.</h3>
+      <h3 style="font-size:20px">Together we can and do everything for your health.</h3> -->
+    </div>
+  </div>
+  <div class="text-div">
+    <div class="hospital-text">
+      <p>Welcome to our hospital!
+        We are proud to provide you with our expert team and modern equipment for
+        high-quality healthcare. Our hospital is located in the city center and
+        specializes in all areas of medicine. We offer 24-hour emergency care and
+        have departments for internal medicine, surgery, gynecology and obstetrics,
+        pediatrics, laboratory, and X-ray. We are always ready to assist you and look forward to your visit.</p>
+    </div>
+    <div class="hospital-text">
+      <p>
+        Our hospital is known for its high level of expertise and professionalism of our
+        team. Our patients are delighted with the fast and efficient diagnostics and
+        treatment, as well as the friendly and attentive approach of our staff.
+        Many of our patients have said that they felt safe and comfortable during their
+        stay with us, and were satisfied with the results of their treatment. We strive to
+        provide the best possible healthcare and to be an excellent choice for all of your health needs.
+      </p>
     </div>
   </div>
   <div class="feedback-title">
     <br> <br>
-    <h1>What our patients say about us?</h1>
+    <h1 class="feedback-text">What our patients say about us?</h1>
     <br>
   </div>
-  <div>
+  <div class="all-feedback">
     <div *ngFor="let feedback of feedbacks">
       <mat-card class="example-card">
         <mat-card-title-group>
@@ -38,6 +58,7 @@
       </mat-card>
     </div>
   </div>
+
 
   <ngb-carousel>
     <ng-template ngbSlide *ngFor="let slide of news">

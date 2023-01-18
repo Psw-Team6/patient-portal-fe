@@ -20,6 +20,8 @@ import {NgToastModule} from "ng-angular-popup";
 import { NgxMaterialTimepickerModule } from "ngx-material-timepicker";
 import {PatientHealthModule} from "./modules/patient-health/patient-health.module";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
+import {CalendarModule, DateAdapter} from "angular-calendar";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NgToastModule,
     PatientHealthModule,
     NgbModule,
-    NgToastModule
+    NgToastModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    })
   ],
   providers: [ApplicationUserClient,
               DoctorClient,

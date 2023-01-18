@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
 import * as moment from "moment";
 import {MyAppointments} from "../../model/my-appointments.model";
 import {AppointmentService} from "../../services/appointment.service";
@@ -9,7 +9,7 @@ import {
   AppointmentReportPdfRequest,
   AppointmentResponse, Examination
 } from "../../../../api/api-reference";
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {TokenStorageService} from "../../services/token-storage.service";
 import {Patient} from "../../model/patient.model";
 import {MaliciousPatient} from "../../model/malicious-patient.model";
@@ -17,6 +17,7 @@ import {PatientService} from "../../services/patient.service";
 import {MaliciousPatientService} from "../../services/malicious-patient.service";
 import {HttpClient} from "@angular/common/http";
 import {ExaminationService} from "../../services/examination.service";
+import {DataServiceService} from "../../services/data-service.service";
 
 @Component({
   selector: 'app-appointments-preview',
@@ -25,7 +26,7 @@ import {ExaminationService} from "../../services/examination.service";
 })
 export class AppointmentsPreviewComponent implements OnInit {
   @Input() appointments :AppointmentResponse[]=[];
-
+  appointment  = new AppointmentResponse()
   displayedColumns: string[] = ['Date','start time','finish time','Cancel', 'PDF'];
   tomorrow= new Date();
   @Output() onDelete: EventEmitter<AppointmentResponse[]> = new EventEmitter();
@@ -35,16 +36,27 @@ export class AppointmentsPreviewComponent implements OnInit {
   examinations: Examination[] = [];
   isLoaded:boolean = false;
 
-  constructor(private http: HttpClient, private examService: ExaminationService, private maliciousPatientService: MaliciousPatientService, private readonly router:Router,private  client: AppointmentClient, public dialog: MatDialog,private tokenStorageService:TokenStorageService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+    private dialogRef: MatDialogRef<AppointmentsPreviewComponent>,private dataService: DataServiceService,
+              private http: HttpClient, private examService: ExaminationService,
+              private maliciousPatientService: MaliciousPatientService,
+              private readonly router:Router,private  client: AppointmentClient,
+              public dialog: MatDialog,private tokenStorageService:TokenStorageService) {
     this.tomorrow.setDate(this.tomorrow.getDate() + 1);
     this.userToken = this.tokenStorageService.getUser();
     this.pdfOptions= new AppointmentReportPdfRequest()
+    this.appointment = this.data.appointment
+
     this.loadExaminations();
   }
 
   ngOnInit(): void {
   }
-
+  getState(){
+    if(this.appointment.appointmentState ==0) return "Pending"
+    if(this.appointment.appointmentState ==1) return "Examined"
+    return "Cancelled"
+  }
   createPdf(id: any) {
     console.log(this.pdfOptions)
     this.generate(id).subscribe(res => {
@@ -74,10 +86,11 @@ export class AppointmentsPreviewComponent implements OnInit {
         next : response =>{
           alert("success");
           console.log(response)
-          this.appointments = this.appointments.filter((a) => a.id != id);
-          console.log(this.appointments)
-          this.onDelete.emit()
-
+         /* this.appointments = this.appointments.filter((a) => a.id != id);
+          console.log(this.appointments)*/
+          /*this.onDelete.emit()*/
+          this.dataService.sendData(id);
+          this.dialogRef.close()
           this.maliciousPatientService.maliciousPatientStatus(this.tokenStorageService.getUser().id).subscribe(res => {
             this.patient = res;
         })
@@ -108,5 +121,11 @@ export class AppointmentsPreviewComponent implements OnInit {
         return false
     }
     return true
+  }
+  formatTime(date : Date):string{
+    return  moment(date).format('h:mm:ss a')
+  }
+  formatDate(date : Date):string{
+    return  moment(date).format('MMMM Do YYYY, h:mm:ss a')
   }
 }

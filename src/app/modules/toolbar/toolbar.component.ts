@@ -17,6 +17,8 @@ import {
 
 export class ToolbarComponent implements OnInit {
 loggedIn = false;
+isPatient = true; 
+isSignUpClicked = false;
 
   constructor(public dialog: MatDialog, private router: Router, private tokenService : TokenStorageService) {}
 
@@ -43,15 +45,21 @@ loggedIn = false;
 
   ngOnInit(): void {
     this.loggedIn = this.tokenService.isLoggedIn();
+    if (this.tokenService.getUser().role === 'BloodBankCenter')
+      this.isPatient=false;
+    else 
+      this.isPatient=true;
   }
 
 
   openLoginForm() {
-    this.router.navigate(['']);
+    this.router.navigate(['sign-up']);
+    this.isSignUpClicked = true;
   }
 
   onSignOut() {
     this.router.navigate(['sign-out']);
+    this.isSignUpClicked = false;
 
   }
 
