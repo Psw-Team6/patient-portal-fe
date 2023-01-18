@@ -69,3 +69,26 @@ mat-card-content {
   margin: 5px;
   font-size: larger;
 }
+
+.feedback-text {
+  font-family: Arial;
+
+}
+
+.text-div {
+  display: flex;
+  flex-direction: row;
+  background: #3b4d79;
+  border: solid 3px #1B273C;
+}
+
+.hospital-text {
+  padding: 2%;
+  font-size: 20px;
+  color: white;
+  text-align: justify;
+  line-height: 1.5;
+  font-family: Arial;
+}
+
+
